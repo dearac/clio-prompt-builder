@@ -700,6 +700,7 @@
   var pinned = [];            // [{section, style, file, thumb}] max 2, FIFO
   var lbIndex = -1;
   var splitPos = 0.5;
+  var styleTexts = {};        // style name -> full prose paragraph (from styles.json when reachable)
 
   // ---------- dom ----------
   var $ = function (id) { return document.getElementById(id); };
@@ -758,8 +759,20 @@
   function fullPrompt(sectionKey, style) {
     var sec = manifest.sections[sectionKey] || {};
     var tpl = sec.template || "{prompt}. {style}";
-    return tpl.split("{prompt}").join(manifest.subject_prompt || "").split("{style}").join(style);
+    // the real prompt uses the style's full prose paragraph; fall back to the name if styles.json wasn't reachable
+    return tpl.split("{prompt}").join(manifest.subject_prompt || "").split("{style}").join(styleTexts[style] || style);
   }
+
+  // styles.json lives beside the gallery locally, or one level up in the repo layout
+  (function loadStyleTexts() {
+    function tryFetch(path, next) {
+      fetch(path, { cache: "no-cache" })
+        .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+        .then(function (data) { (data || []).forEach(function (e) { styleTexts[e.name] = e.prompt; }); })
+        .catch(next || function () {});
+    }
+    tryFetch("styles.json", function () { tryFetch("../styles.json"); });
+  })();
 
   // ---------- empty states ----------
   function showEmpty(big, small) {
