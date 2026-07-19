@@ -4,6 +4,8 @@
 
 Built for [KREA 2 Turbo](https://huggingface.co/Comfy-Org/Krea-2) and other long-context text encoders (Qwen-family). Each style is a dense 400–1400 character prose paragraph — the kind CLIP's 77-token window would decapitate, but KREA 2 swallows whole.
 
+**🎭 [Live demo gallery](https://lumenastrum.github.io/clio-style-preview/)** — all 281 styles on one subject, one seed (512px demo set; clone the repo to render full-res on *your* subject).
+
 ![Split compare: Ghibli vs Yoshitaka Amano](docs/gallery-compare.png)
 
 ## What's in the box
