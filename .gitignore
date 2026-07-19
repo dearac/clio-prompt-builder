@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+gallery/manifest.json
+gallery/krea2/

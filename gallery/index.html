@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Style Preview ✦ Clio-Apps</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27><text y=%27.9em%27 font-size=%2790%27>💅</text></svg>">
+<style>
+  :root {
+    --bg: #150f1a;
+    --panel: #1f1626;
+    --panel-2: #2a1d33;
+    --pink: #ff6fa5;
+    --pink-soft: #ff9ec4;
+    --pink-dim: rgba(255, 111, 165, .14);
+    --gold: #eec46b;
+    --gold-soft: #f7dc9a;
+    --text: #f5eaf1;
+    --muted: #b9a3b3;
+    --line: rgba(255, 255, 255, .08);
+    --shadow-pink: 0 8px 32px rgba(255, 111, 165, .22);
+    --radius: 14px;
+    --font: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scrollbar-color: var(--pink) var(--bg); }
+  body {
+    font-family: var(--font);
+    background:
+      radial-gradient(900px 500px at 12% -5%, rgba(255, 111, 165, .13), transparent 60%),
+      radial-gradient(800px 500px at 95% 105%, rgba(238, 196, 107, .10), transparent 60%),
+      var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding-bottom: 120px; /* room for pin tray */
+  }
+  ::selection { background: var(--pink); color: #1a0d14; }
+
+  /* ---------- header ---------- */
+  header {
+    padding: 34px clamp(16px, 4vw, 48px) 18px;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+  h1 {
+    font-size: clamp(28px, 4vw, 42px);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    background: linear-gradient(100deg, var(--pink-soft) 10%, var(--pink) 40%, var(--gold-soft) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+  }
+  h1 .spark { -webkit-text-fill-color: var(--gold); font-size: .6em; vertical-align: super; }
+  .subtitle { color: var(--muted); margin-top: 6px; font-size: 14px; }
+  .seed-badge {
+    display: inline-block;
+    margin-left: 10px;
+    padding: 2px 10px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 12px;
+    color: var(--gold-soft);
+    background: rgba(238, 196, 107, .08);
+    vertical-align: middle;
+  }
+  details.subject {
+    margin-top: 14px;
+    max-width: 760px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, .02);
+    overflow: hidden;
+  }
+  details.subject summary {
+    cursor: pointer;
+    padding: 9px 14px;
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    list-style: none;
+    user-select: none;
+  }
+  details.subject summary::before { content: "✦ "; color: var(--pink); }
+  details.subject summary:hover { color: var(--pink-soft); }
+  details.subject p {
+    padding: 0 14px 12px;
+    font-size: 13.5px;
+    line-height: 1.55;
+    color: var(--text);
+    font-style: italic;
+  }
+
+  /* ---------- controls ---------- */
+  .controls {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+    padding: 12px clamp(16px, 4vw, 48px);
+    max-width: 1500px;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, rgba(21, 15, 26, .96) 70%, rgba(21, 15, 26, 0));
+    backdrop-filter: blur(8px);
+  }
+  .tabs { display: flex; gap: 8px; flex-wrap: wrap; }
+  .tab {
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 600;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .18s ease;
+  }
+  .tab:hover { color: var(--pink-soft); border-color: rgba(255, 111, 165, .4); }
+  .tab.active {
+    background: linear-gradient(120deg, var(--pink), #e0528b);
+    border-color: transparent;
+    color: #fff;
+    box-shadow: var(--shadow-pink);
+  }
+  .tab .count-pill {
+    margin-left: 7px;
+    font-size: 11px;
+    padding: 1px 7px;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, .25);
+  }
+  .tab:not(.active) .count-pill { background: rgba(255, 255, 255, .06); color: var(--gold-soft); }
+  .search-wrap { margin-left: auto; position: relative; }
+  .search-wrap svg {
+    position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+    width: 15px; height: 15px; stroke: var(--muted); pointer-events: none;
+  }
+  #search {
+    font-family: var(--font);
+    width: min(280px, 62vw);
+    padding: 9px 14px 9px 36px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--text);
+    font-size: 14px;
+    outline: none;
+    transition: border-color .18s ease, box-shadow .18s ease;
+  }
+  #search::placeholder { color: var(--muted); }
+  #search:focus { border-color: var(--pink); box-shadow: 0 0 0 3px var(--pink-dim); }
+  .result-count { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+
+  /* ---------- grid ---------- */
+  main { max-width: 1500px; margin: 0 auto; padding: 10px clamp(16px, 4vw, 48px) 0; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 14px;
+  }
+  .tile {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    cursor: pointer;
+    aspect-ratio: 1 / 1;
+    content-visibility: auto;
+    contain-intrinsic-size: 220px 220px;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .tile:hover, .tile:focus-visible {
+    transform: translateY(-4px);
+    border-color: rgba(255, 111, 165, .55);
+    box-shadow: var(--shadow-pink);
+    outline: none;
+  }
+  .tile img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(135deg, var(--panel), var(--panel-2));
+  }
+  .tile .caption {
+    position: absolute;
+    inset: auto 0 0 0;
+    padding: 26px 10px 9px;
+    font-size: 12.5px;
+    font-weight: 600;
+    background: linear-gradient(to top, rgba(10, 6, 13, .88), transparent);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  }
+  .tile.pinned { border-color: var(--gold); box-shadow: 0 0 0 2px rgba(238, 196, 107, .45), 0 8px 28px rgba(238, 196, 107, .18); }
+  .pin-btn {
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 30px; height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: rgba(15, 9, 19, .72);
+    backdrop-filter: blur(4px);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .15s ease, transform .15s ease, background .15s ease;
+  }
+  .tile:hover .pin-btn, .tile.pinned .pin-btn, .pin-btn:focus-visible { opacity: 1; }
+  .pin-btn:hover { transform: scale(1.12); }
+  .pin-btn svg { width: 14px; height: 14px; fill: none; stroke: var(--pink-soft); stroke-width: 1.8; stroke-linejoin: round; stroke-linecap: round; }
+  .tile.pinned .pin-btn { background: var(--gold); border-color: var(--gold); }
+  .tile.pinned .pin-btn svg { stroke: #2a1d05; fill: #2a1d05; }
+  .pin-order {
+    position: absolute;
+    top: 8px; left: 8px;
+    min-width: 22px; height: 22px;
+    padding: 0 6px;
+    border-radius: 999px;
+    background: var(--gold);
+    color: #2a1d05;
+    font-size: 12px;
+    font-weight: 800;
+    display: none;
+    place-items: center;
+  }
+  .tile.pinned .pin-order { display: grid; }
+
+  .empty-state {
+    text-align: center;
+    padding: 70px 20px;
+    color: var(--muted);
+    border: 1px dashed var(--line);
+    border-radius: var(--radius);
+    background: rgba(255, 255, 255, .015);
+  }
+  .empty-state .big { font-size: 20px; color: var(--pink-soft); margin-bottom: 8px; font-weight: 700; }
+  .empty-state code { color: var(--gold-soft); background: rgba(238,196,107,.1); padding: 1px 7px; border-radius: 6px; }
+
+  /* ---------- pin tray ---------- */
+  .pin-tray {
+    position: fixed;
+    left: 50%;
+    bottom: 18px;
+    transform: translateX(-50%) translateY(140%);
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(238, 196, 107, .35);
+    background: rgba(26, 17, 32, .92);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, .5);
+    transition: transform .25s cubic-bezier(.2, .9, .3, 1.2);
+    max-width: min(94vw, 640px);
+  }
+  .pin-tray.show { transform: translateX(-50%) translateY(0); }
+  .tray-label { font-size: 11px; letter-spacing: .22em; text-transform: uppercase; color: var(--gold); padding-left: 6px; white-space: nowrap; }
+  .tray-slot {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 10px 4px 4px;
+    border-radius: 999px;
+    border: 1px dashed var(--line);
+    min-width: 120px;
+    font-size: 12.5px;
+    color: var(--muted);
+  }
+  .tray-slot.filled { border-style: solid; border-color: rgba(238, 196, 107, .5); color: var(--text); }
+  .tray-slot img { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; }
+  .tray-slot .x {
+    border: none; background: none; color: var(--muted); cursor: pointer;
+    font-size: 14px; padding: 0 2px; line-height: 1;
+  }
+  .tray-slot .x:hover { color: var(--pink); }
+  .compare-btn {
+    font-family: var(--font);
+    font-weight: 700;
+    font-size: 13.5px;
+    padding: 9px 20px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, .06);
+    color: var(--muted);
+    transition: all .18s ease;
+    white-space: nowrap;
+  }
+  .compare-btn.ready {
+    background: linear-gradient(120deg, var(--pink), var(--gold));
+    color: #23101b;
+    box-shadow: var(--shadow-pink);
+  }
+  .compare-btn.ready:hover { filter: brightness(1.1); transform: scale(1.03); }
+
+  /* ---------- overlays (shared) ---------- */
+  .overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    background: rgba(10, 6, 13, .82);
+    backdrop-filter: blur(10px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+  }
+  .overlay.open { display: flex; animation: fadeIn .18s ease; }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  .icon-btn {
+    width: 40px; height: 40px;
+    border-radius: 50%;
+    border: 1px solid var(--line);
+    background: rgba(31, 22, 38, .85);
+    color: var(--text);
+    font-size: 20px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: all .15s ease;
+    user-select: none;
+  }
+  .icon-btn:hover { border-color: var(--pink); color: var(--pink-soft); transform: scale(1.06); }
+
+  /* ---------- lightbox ---------- */
+  .lightbox-stage {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    max-width: 1200px;
+    width: 100%;
+  }
+  .lightbox-card {
+    flex: 1;
+    min-width: 0;
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .6);
+  }
+  .lightbox-img-wrap {
+    background:
+      radial-gradient(500px 300px at 50% 0%, rgba(255, 111, 165, .07), transparent),
+      #120b17;
+    display: grid;
+    place-items: center;
+    max-height: 72vh;
+    overflow: hidden;
+  }
+  .lightbox-img-wrap img {
+    max-width: 100%;
+    max-height: 72vh;
+    object-fit: contain;
+    display: block;
+  }
+  .lightbox-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 20px;
+  }
+  .lightbox-meta .style-name { font-size: 19px; font-weight: 800; letter-spacing: -.01em; }
+  .lightbox-meta .meta-sub { font-size: 12.5px; color: var(--muted); width: 100%; margin-top: -6px; }
+  .meta-actions { margin-left: auto; display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn {
+    font-family: var(--font);
+    font-size: 13px;
+    font-weight: 700;
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    border: 1px solid var(--line);
+    background: var(--panel-2);
+    color: var(--text);
+    transition: all .15s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .btn svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .btn:hover { border-color: var(--pink); color: var(--pink-soft); }
+  .btn.primary {
+    background: linear-gradient(120deg, var(--pink), #e0528b);
+    border-color: transparent;
+    color: #fff;
+  }
+  .btn.primary:hover { filter: brightness(1.12); color: #fff; }
+  .btn.gold { border-color: rgba(238, 196, 107, .5); color: var(--gold-soft); }
+  .btn.gold:hover { border-color: var(--gold); color: var(--gold); }
+  .btn.gold.active { background: var(--gold); color: #2a1d05; border-color: var(--gold); }
+  .lb-close { position: fixed; top: 20px; right: 22px; z-index: 101; }
+
+  /* ---------- compare ---------- */
+  .compare-shell {
+    width: min(1240px, 96vw);
+    height: min(88vh, 900px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .compare-topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .compare-title { font-size: 15px; font-weight: 700; }
+  .compare-title .vs { color: var(--gold); font-weight: 800; margin: 0 6px; font-size: 12px; letter-spacing: .2em; }
+  .mode-toggle { margin-left: auto; display: flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; }
+  .mode-toggle button {
+    font-family: var(--font);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 7px 16px;
+    border: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all .15s ease;
+  }
+  .mode-toggle button.active { background: var(--pink); color: #fff; }
+  .compare-stage { flex: 1; min-height: 0; position: relative; }
+
+  /* split mode */
+  .split-stage {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: #120b17;
+    cursor: ew-resize;
+    touch-action: none;
+    user-select: none;
+  }
+  .split-layer {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+  }
+  .split-layer img { width: 100%; height: 100%; object-fit: contain; }
+  .split-layer.top { will-change: clip-path; }
+  .split-tag {
+    position: absolute;
+    bottom: 14px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    background: rgba(15, 9, 19, .78);
+    border: 1px solid var(--line);
+    backdrop-filter: blur(6px);
+    pointer-events: none;
+    z-index: 3;
+  }
+  .split-tag.left { left: 14px; color: var(--pink-soft); border-color: rgba(255, 111, 165, .4); }
+  .split-tag.right { right: 14px; color: var(--gold-soft); border-color: rgba(238, 196, 107, .4); }
+  .split-divider {
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--pink), var(--gold));
+    transform: translateX(-50%);
+    z-index: 4;
+    pointer-events: none;
+    box-shadow: 0 0 18px rgba(255, 111, 165, .5);
+  }
+  .split-handle {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: rgba(15, 9, 19, .85);
+    border: 2px solid var(--gold);
+    display: grid;
+    place-items: center;
+    color: var(--gold-soft);
+    font-size: 15px;
+    letter-spacing: 2px;
+    z-index: 5;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+  }
+  /* side-by-side mode */
+  .sidebyside {
+    display: none;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    height: 100%;
+  }
+  .compare-shell.mode-side .sidebyside { display: grid; }
+  .compare-shell.mode-side .split-stage { display: none; }
+  .sbs-pane {
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+    background: #120b17;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+  }
+  .sbs-pane .img-wrap { flex: 1; min-height: 0; display: grid; place-items: center; overflow: auto; }
+  .sbs-pane img { max-width: 100%; max-height: 100%; object-fit: contain; display: block; }
+  .sbs-pane .pane-label {
+    padding: 10px 16px;
+    font-size: 14px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--panel);
+  }
+  .sbs-pane:first-child .pane-label { color: var(--pink-soft); }
+  .sbs-pane:last-child .pane-label { color: var(--gold-soft); }
+  .pane-label .mini-copy {
+    margin-left: auto;
+    font-size: 11.5px;
+    padding: 4px 12px;
+  }
+
+  /* ---------- toast ---------- */
+  .toast {
+    position: fixed;
+    bottom: 90px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    background: linear-gradient(120deg, var(--pink), var(--gold));
+    color: #23101b;
+    font-weight: 800;
+    font-size: 13.5px;
+    padding: 10px 22px;
+    border-radius: 999px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .22s ease;
+    z-index: 200;
+    box-shadow: 0 10px 30px rgba(255, 111, 165, .35);
+  }
+  .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  footer {
+    text-align: center;
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 46px;
+    letter-spacing: .12em;
+  }
+  footer .heart { color: var(--pink); }
+
+  @media (max-width: 640px) {
+    .grid { grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; }
+    .search-wrap { margin-left: 0; width: 100%; }
+    #search { width: 100%; }
+    .lightbox-stage { gap: 8px; }
+    .lb-nav { display: none; }
+    .tray-slot { min-width: 0; }
+    .tray-slot span.name { max-width: 80px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .sidebyside { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="eyebrow">Clio-Apps ✦ Gallery</div>
+  <h1>Style Preview <span class="spark">✦</span></h1>
+  <div class="subtitle">
+    One subject, one seed, every style in the library.<span class="seed-badge" id="seedBadge" hidden></span>
+  </div>
+  <details class="subject" id="subjectDetails" hidden>
+    <summary>Subject prompt</summary>
+    <p id="subjectPrompt"></p>
+  </details>
+</header>
+
+<div class="controls" id="controls" hidden>
+  <nav class="tabs" id="tabs" aria-label="Sections"></nav>
+  <div class="search-wrap">
+    <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="search" type="search" placeholder="filter styles…" aria-label="Filter styles by name" autocomplete="off">
+  </div>
+  <div class="result-count" id="resultCount"></div>
+</div>
+
+<main id="main">
+  <div class="empty-state" id="loadingState">
+    <div class="big">✦ warming up the gallery…</div>
+  </div>
+</main>
+
+<!-- pin tray -->
+<div class="pin-tray" id="pinTray" role="region" aria-label="Pinned styles">
+  <span class="tray-label">Compare</span>
+  <div class="tray-slot" id="slot0"><span class="name">pin a style…</span></div>
+  <div class="tray-slot" id="slot1"><span class="name">pin another…</span></div>
+  <button class="compare-btn" id="compareBtn" disabled>✦ side by side</button>
+</div>
+
+<!-- lightbox -->
+<div class="overlay" id="lightbox" role="dialog" aria-modal="true" aria-label="Style detail">
+  <button class="icon-btn lb-close" data-close="lightbox" aria-label="Close">×</button>
+  <div class="lightbox-stage">
+    <button class="icon-btn lb-nav" id="lbPrev" aria-label="Previous style">‹</button>
+    <div class="lightbox-card">
+      <div class="lightbox-img-wrap"><img id="lbImg" alt=""></div>
+      <div class="lightbox-meta">
+        <div class="style-name" id="lbName"></div>
+        <div class="meta-sub" id="lbSub"></div>
+        <div class="meta-actions">
+          <button class="btn gold" id="lbPin">
+            <svg viewBox="0 0 24 24"><path d="M9 4h6l-1 7 3 3v2H7v-2l3-3-1-7Z"/><path d="M12 16v5"/></svg>
+            <span>pin</span>
+          </button>
+          <button class="btn" id="lbCopyPrompt">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+            copy prompt
+          </button>
+          <button class="btn primary" id="lbCopyStyle">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
+            copy style name
+          </button>
+        </div>
+      </div>
+    </div>
+    <button class="icon-btn lb-nav" id="lbNext" aria-label="Next style">›</button>
+  </div>
+</div>
+
+<!-- compare -->
+<div class="overlay" id="compare" role="dialog" aria-modal="true" aria-label="Compare pinned styles">
+  <button class="icon-btn lb-close" data-close="compare" aria-label="Close">×</button>
+  <div class="compare-shell mode-split" id="compareShell">
+    <div class="compare-topbar">
+      <div class="compare-title" id="compareTitle"></div>
+      <div class="mode-toggle" role="tablist">
+        <button id="modeSplit" class="active">split slider</button>
+        <button id="modeSide">side by side</button>
+      </div>
+    </div>
+    <div class="compare-stage">
+      <div class="split-stage" id="splitStage" aria-label="Drag to compare">
+        <div class="split-layer bottom"><img id="splitImgB" alt=""></div>
+        <div class="split-layer top" id="splitTop"><img id="splitImgA" alt=""></div>
+        <div class="split-tag left" id="tagA"></div>
+        <div class="split-tag right" id="tagB"></div>
+        <div class="split-divider" id="splitDivider"><div class="split-handle" id="splitHandle">‹ ›</div></div>
+      </div>
+      <div class="sidebyside">
+        <div class="sbs-pane">
+          <div class="img-wrap"><img id="sbsImgA" alt=""></div>
+          <div class="pane-label"><span id="sbsNameA"></span><button class="btn mini-copy" data-copy="A">copy style</button></div>
+        </div>
+        <div class="sbs-pane">
+          <div class="img-wrap"><img id="sbsImgB" alt=""></div>
+          <div class="pane-label"><span id="sbsNameB"></span><button class="btn mini-copy" data-copy="B">copy style</button></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer>clio-apps <span class="heart">♡</span> style preview <span class="heart">♡</span> same seed, different soul</footer>
+
+<noscript><p style="text-align:center;padding:40px;color:#b9a3b3">This gallery needs JavaScript to sparkle. ✦</p></noscript>
+
+<script>
+(function () {
+  "use strict";
+
+  // ---------- state ----------
+  var manifest = null;
+  var sectionKeys = [];
+  var activeSection = null;
+  var query = "";
+  var filtered = [];          // filtered image entries of active section
+  var pinned = [];            // [{section, style, file, thumb}] max 2, FIFO
+  var lbIndex = -1;
+  var splitPos = 0.5;
+
+  // ---------- dom ----------
+  var $ = function (id) { return document.getElementById(id); };
+  var els = {
+    main: $("main"), tabs: $("tabs"), search: $("search"), resultCount: $("resultCount"),
+    controls: $("controls"), seedBadge: $("seedBadge"),
+    subjectDetails: $("subjectDetails"), subjectPrompt: $("subjectPrompt"),
+    pinTray: $("pinTray"), compareBtn: $("compareBtn"),
+    lightbox: $("lightbox"), lbImg: $("lbImg"), lbName: $("lbName"), lbSub: $("lbSub"),
+    lbPin: $("lbPin"), lbCopyStyle: $("lbCopyStyle"), lbCopyPrompt: $("lbCopyPrompt"),
+    compare: $("compare"), compareShell: $("compareShell"), compareTitle: $("compareTitle"),
+    splitStage: $("splitStage"), splitTop: $("splitTop"),
+    splitImgA: $("splitImgA"), splitImgB: $("splitImgB"),
+    tagA: $("tagA"), tagB: $("tagB"),
+    splitDivider: $("splitDivider"), splitHandle: $("splitHandle"),
+    sbsImgA: $("sbsImgA"), sbsImgB: $("sbsImgB"), sbsNameA: $("sbsNameA"), sbsNameB: $("sbsNameB"),
+    toast: $("toast"),
+  };
+
+  function uri(p) { return encodeURI(p); }
+  function esc(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  // ---------- toast ----------
+  var toastTimer = null;
+  function toast(msg) {
+    els.toast.textContent = msg;
+    els.toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function () { els.toast.classList.remove("show"); }, 1600);
+  }
+
+  // ---------- clipboard (file:// safe) ----------
+  function copyText(text, doneMsg) {
+    function ok() { toast(doneMsg); }
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.cssText = "position:fixed;opacity:0;top:0;left:0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); ok(); }
+      catch (e) { toast("copy failed — select it manually ✦"); }
+      document.body.removeChild(ta);
+    }
+    if (navigator.clipboard && window.isSecureContext !== false && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(ok, fallback);
+    } else {
+      fallback();
+    }
+  }
+
+  function fullPrompt(sectionKey, style) {
+    var sec = manifest.sections[sectionKey] || {};
+    var tpl = sec.template || "{prompt}. {style}";
+    return tpl.split("{prompt}").join(manifest.subject_prompt || "").split("{style}").join(style);
+  }
+
+  // ---------- empty states ----------
+  function showEmpty(big, small) {
+    els.main.innerHTML =
+      '<div class="empty-state"><div class="big">' + big + '</div>' +
+      (small ? '<div>' + small + "</div>" : "") + "</div>";
+  }
+
+  // ---------- manifest ----------
+  fetch("manifest.json", { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(function (data) {
+      manifest = data || {};
+      manifest.sections = manifest.sections || {};
+      sectionKeys = Object.keys(manifest.sections);
+
+      if (typeof manifest.seed !== "undefined") {
+        els.seedBadge.hidden = false;
+        els.seedBadge.textContent = "seed " + manifest.seed;
+      }
+      if (manifest.subject_prompt) {
+        els.subjectDetails.hidden = false;
+        els.subjectPrompt.textContent = manifest.subject_prompt;
+      }
+      if (!sectionKeys.length) {
+        showEmpty("✦ no sections yet", "<code>manifest.json</code> has an empty <code>sections</code> object — run a batch, cutie.");
+        return;
+      }
+      activeSection = sectionKeys[0];
+      els.controls.hidden = false;
+      buildTabs();
+      applyFilter();
+    })
+    .catch(function (err) {
+      showEmpty(
+        "✦ manifest.json not found",
+        "Drop this <code>index.html</code> next to a <code>manifest.json</code> and refresh.<br><small>(" + esc(err.message) + ")</small>"
+      );
+      els.controls.hidden = true;
+    });
+
+  // ---------- tabs ----------
+  function buildTabs() {
+    els.tabs.innerHTML = "";
+    sectionKeys.forEach(function (key) {
+      var sec = manifest.sections[key] || {};
+      var n = Array.isArray(sec.images) ? sec.images.length : 0;
+      var b = document.createElement("button");
+      b.className = "tab" + (key === activeSection ? " active" : "");
+      b.innerHTML = esc(sec.title || key) + '<span class="count-pill">' + n + "</span>";
+      b.addEventListener("click", function () {
+        if (activeSection === key) return;
+        activeSection = key;
+        buildTabs();
+        applyFilter();
+      });
+      els.tabs.appendChild(b);
+    });
+  }
+
+  // ---------- grid ----------
+  function isPinned(section, style) {
+    for (var i = 0; i < pinned.length; i++) {
+      if (pinned[i].section === section && pinned[i].style === style) return i;
+    }
+    return -1;
+  }
+
+  function applyFilter() {
+    var sec = manifest.sections[activeSection] || {};
+    var images = Array.isArray(sec.images) ? sec.images : [];
+    var q = query.trim().toLowerCase();
+    filtered = images.filter(function (it) {
+      return it && typeof it.style === "string" && it.style.toLowerCase().indexOf(q) !== -1;
+    });
+    renderGrid();
+    var label = images.length === 1 ? "style" : "styles";
+    els.resultCount.textContent = q
+      ? filtered.length + " of " + images.length + " " + label
+      : images.length + " " + label;
+  }
+
+  function renderGrid() {
+    els.main.innerHTML = "";
+    if (!filtered.length) {
+      var total = (manifest.sections[activeSection] || {}).images || [];
+      if (!total.length) {
+        showEmpty("✦ nothing here yet", "This section is waiting for its first batch. The frames are hung, the walls are painted…");
+      } else {
+        showEmpty("✦ no match for “" + esc(query) + "”", "Try a shorter name — she's picky but not that picky.");
+      }
+      return;
+    }
+    var grid = document.createElement("div");
+    grid.className = "grid";
+    filtered.forEach(function (item, idx) {
+      var tile = document.createElement("div");
+      tile.className = "tile";
+      tile.tabIndex = 0;
+      tile.setAttribute("role", "button");
+      tile.setAttribute("aria-label", item.style);
+
+      var pinIdx = isPinned(activeSection, item.style);
+      if (pinIdx !== -1) tile.classList.add("pinned");
+
+      var img = document.createElement("img");
+      img.loading = "lazy";
+      img.decoding = "async";
+      img.alt = item.style;
+      img.src = uri(item.thumb || item.file);
+      img.onerror = function () {
+        if (item.file && img.src.indexOf(uri(item.file)) === -1) {
+          img.src = uri(item.file); // thumb missing → fall back to full-res
+        } else {
+          img.onerror = null;
+          img.remove(); // both missing → leave gradient placeholder
+        }
+      };
+
+      var cap = document.createElement("div");
+      cap.className = "caption";
+      cap.textContent = item.style;
+
+      var pinBtn = document.createElement("button");
+      pinBtn.className = "pin-btn";
+      pinBtn.title = "Pin to compare";
+      pinBtn.setAttribute("aria-label", "Pin " + item.style + " to compare");
+      pinBtn.innerHTML = '<svg viewBox="0 0 24 24"><path d="M9 4h6l-1 7 3 3v2H7v-2l3-3-1-7Z"/><path d="M12 16v5"/></svg>';
+      pinBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        togglePin(item);
+      });
+
+      var order = document.createElement("div");
+      order.className = "pin-order";
+      if (pinIdx !== -1) order.textContent = pinIdx + 1;
+
+      tile.appendChild(img);
+      tile.appendChild(cap);
+      tile.appendChild(pinBtn);
+      tile.appendChild(order);
+
+      tile.addEventListener("click", function () { openLightbox(idx); });
+      tile.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(idx); }
+      });
+
+      grid.appendChild(tile);
+    });
+    els.main.appendChild(grid);
+  }
+
+  // ---------- search ----------
+  var searchTimer = null;
+  els.search.addEventListener("input", function () {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(function () {
+      query = els.search.value;
+      applyFilter();
+    }, 80);
+  });
+
+  // ---------- pinning ----------
+  function togglePin(item) {
+    var idx = isPinned(activeSection, item.style);
+    if (idx !== -1) {
+      pinned.splice(idx, 1);
+    } else {
+      if (pinned.length >= 2) pinned.shift(); // FIFO: oldest falls off
+      pinned.push({
+        section: activeSection,
+        style: item.style,
+        file: item.file,
+        thumb: item.thumb || item.file,
+      });
+      if (pinned.length === 2) toast("two pinned — compare away ✦");
+    }
+    renderTray();
+    renderGrid(); // refresh pin rings/order badges
+    syncLightboxPin();
+  }
+
+  function unpin(i) {
+    pinned.splice(i, 1);
+    renderTray();
+    renderGrid();
+    syncLightboxPin();
+  }
+
+  function renderTray() {
+    els.pinTray.classList.toggle("show", pinned.length > 0);
+    [0, 1].forEach(function (i) {
+      var slot = $("slot" + i);
+      var p = pinned[i];
+      if (p) {
+        slot.className = "tray-slot filled";
+        slot.innerHTML =
+          '<img src="' + uri(p.thumb) + '" alt="">' +
+          '<span class="name">' + esc(p.style) + "</span>" +
+          '<button class="x" aria-label="Unpin ' + esc(p.style) + '">×</button>';
+        slot.querySelector("img").onerror = function () { this.style.display = "none"; };
+        slot.querySelector(".x").addEventListener("click", function () { unpin(i); });
+      } else {
+        slot.className = "tray-slot";
+        slot.innerHTML = '<span class="name">' + (i === 0 ? "pin a style…" : "pin another…") + "</span>";
+      }
+    });
+    els.compareBtn.disabled = pinned.length !== 2;
+    els.compareBtn.classList.toggle("ready", pinned.length === 2);
+  }
+
+  // ---------- lightbox ----------
+  function openLightbox(idx) {
+    if (idx < 0 || idx >= filtered.length) return;
+    lbIndex = idx;
+    var item = filtered[idx];
+    els.lbImg.src = uri(item.file || item.thumb);
+    els.lbImg.alt = item.style;
+    els.lbImg.onerror = function () {
+      if (item.thumb && els.lbImg.src.indexOf(uri(item.thumb)) === -1) els.lbImg.src = uri(item.thumb);
+    };
+    els.lbName.textContent = item.style;
+    var sec = manifest.sections[activeSection] || {};
+    var bits = [];
+    if (sec.title) bits.push(sec.title);
+    bits.push("seed " + (typeof item.seed !== "undefined" ? item.seed : manifest.seed));
+    bits.push((lbIndex + 1) + " / " + filtered.length);
+    els.lbSub.textContent = bits.join("  ·  ");
+    syncLightboxPin();
+    els.lightbox.classList.add("open");
+  }
+
+  function syncLightboxPin() {
+    if (lbIndex < 0 || !filtered[lbIndex]) return;
+    var on = isPinned(activeSection, filtered[lbIndex].style) !== -1;
+    els.lbPin.classList.toggle("active", on);
+    els.lbPin.querySelector("span").textContent = on ? "pinned" : "pin";
+  }
+
+  function stepLightbox(d) {
+    if (!filtered.length) return;
+    openLightbox((lbIndex + d + filtered.length) % filtered.length);
+  }
+
+  els.lbPrev = $("lbPrev");
+  els.lbNext = $("lbNext");
+  els.lbPrev.addEventListener("click", function () { stepLightbox(-1); });
+  els.lbNext.addEventListener("click", function () { stepLightbox(1); });
+  els.lbPin.addEventListener("click", function () { if (filtered[lbIndex]) togglePin(filtered[lbIndex]); });
+  els.lbCopyStyle.addEventListener("click", function () {
+    if (filtered[lbIndex]) copyText(filtered[lbIndex].style, "style name copied ♡");
+  });
+  els.lbCopyPrompt.addEventListener("click", function () {
+    if (filtered[lbIndex]) copyText(fullPrompt(activeSection, filtered[lbIndex].style), "full prompt copied ♡");
+  });
+
+  // ---------- compare ----------
+  els.compareBtn.addEventListener("click", function () {
+    if (pinned.length !== 2) return;
+    var a = pinned[0], b = pinned[1];
+    els.splitImgA.src = uri(a.file); els.splitImgA.alt = a.style;
+    els.splitImgB.src = uri(b.file); els.splitImgB.alt = b.style;
+    els.sbsImgA.src = uri(a.file); els.sbsImgB.src = uri(b.file);
+    els.tagA.textContent = a.style; els.tagB.textContent = b.style;
+    els.sbsNameA.textContent = a.style; els.sbsNameB.textContent = b.style;
+    els.compareTitle.innerHTML = esc(a.style) + '<span class="vs">VS</span>' + esc(b.style);
+    setSplitPos(0.5);
+    els.compare.classList.add("open");
+  });
+
+  $("modeSplit").addEventListener("click", function () { setMode("split"); });
+  $("modeSide").addEventListener("click", function () { setMode("side"); });
+  function setMode(m) {
+    els.compareShell.className = "compare-shell mode-" + m;
+    $("modeSplit").classList.toggle("active", m === "split");
+    $("modeSide").classList.toggle("active", m === "side");
+  }
+
+  document.querySelectorAll(".mini-copy").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      var p = pinned[btn.getAttribute("data-copy") === "A" ? 0 : 1];
+      if (p) copyText(p.style, "style name copied ♡");
+    });
+  });
+
+  // split slider drag
+  function setSplitPos(frac) {
+    splitPos = Math.max(0.02, Math.min(0.98, frac));
+    var pct = splitPos * 100;
+    els.splitTop.style.clipPath = "inset(0 " + (100 - pct) + "% 0 0)";
+    els.splitDivider.style.left = pct + "%";
+    els.splitHandle.style.left = pct + "%";
+  }
+  var dragging = false;
+  function posFromEvent(e) {
+    var r = els.splitStage.getBoundingClientRect();
+    return (e.clientX - r.left) / r.width;
+  }
+  els.splitStage.addEventListener("pointerdown", function (e) {
+    dragging = true;
+    els.splitStage.setPointerCapture(e.pointerId);
+    setSplitPos(posFromEvent(e));
+  });
+  els.splitStage.addEventListener("pointermove", function (e) {
+    if (dragging) setSplitPos(posFromEvent(e));
+  });
+  ["pointerup", "pointercancel"].forEach(function (ev) {
+    els.splitStage.addEventListener(ev, function () { dragging = false; });
+  });
+
+  // ---------- overlay close + keyboard ----------
+  document.querySelectorAll("[data-close]").forEach(function (btn) {
+    btn.addEventListener("click", function () { $(btn.getAttribute("data-close")).classList.remove("open"); });
+  });
+  [els.lightbox, els.compare].forEach(function (ov) {
+    ov.addEventListener("click", function (e) { if (e.target === ov) ov.classList.remove("open"); });
+  });
+  document.addEventListener("keydown", function (e) {
+    var compareOpen = els.compare.classList.contains("open");
+    var lbOpen = els.lightbox.classList.contains("open");
+    if (e.key === "Escape") {
+      if (compareOpen) els.compare.classList.remove("open");
+      else if (lbOpen) els.lightbox.classList.remove("open");
+      return;
+    }
+    if (compareOpen) {
+      if (e.key === "ArrowLeft") setSplitPos(splitPos - 0.04);
+      if (e.key === "ArrowRight") setSplitPos(splitPos + 0.04);
+      return;
+    }
+    if (lbOpen) {
+      if (e.key === "ArrowLeft") stepLightbox(-1);
+      if (e.key === "ArrowRight") stepLightbox(1);
+    }
+    if (!compareOpen && !lbOpen && e.key === "/" && document.activeElement !== els.search) {
+      e.preventDefault();
+      els.search.focus();
+    }
+  });
+})();
+</script>
+</body>
+</html>
