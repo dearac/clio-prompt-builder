@@ -28,7 +28,9 @@ class ClioStyle:
             "required": {
                 "prompt": ("STRING", {"multiline": True, "default": "", "dynamicPrompts": False}),
                 "style": (names, {"default": _NONE}),
-                "template": ("STRING", {"default": "{prompt}. {style}"}),
+                # Style-first delimited format keeps the style from literalizing into the
+                # scene as its own entity (tip from u/Dear-Spend-2865, see repo issue #1)
+                "template": ("STRING", {"default": "Style: {style}. Subject: {prompt}"}),
             }
         }
 

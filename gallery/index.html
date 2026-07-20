@@ -758,7 +758,7 @@
 
   function fullPrompt(sectionKey, style) {
     var sec = manifest.sections[sectionKey] || {};
-    var tpl = sec.template || "{prompt}. {style}";
+    var tpl = sec.template || "Style: {style}. Subject: {prompt}";
     // the real prompt uses the style's full prose paragraph; fall back to the name if styles.json wasn't reachable
     return tpl.split("{prompt}").join(manifest.subject_prompt || "").split("{style}").join(styleTexts[style] || style);
   }

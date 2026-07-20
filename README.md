@@ -29,7 +29,7 @@ You get a **💅 Clio Style Library** node with:
 
 - `prompt` — your subject. Keep it **medium-silent** (no "photo of", no "illustration of") — every style claims its own medium, and a medium word in the subject arm-wrestles all 281 of them.
 - `style` — the dropdown. `✨ none` passes your prompt through untouched.
-- `template` — default `{prompt}. {style}`. Flip it if you want the style to lead.
+- `template` — default `Style: {style}. Subject: {prompt}`. The delimited style-first format keeps object-noun styles (LEGO, Funko…) from literalizing into the scene as their own entity instead of restyling your subject — tip courtesy of u/Dear-Spend-2865, the source of the style library itself (see issue #1 for before/afters).
 
 Outputs: `styled_prompt` (→ your CLIP Text Encode), `style_name`, and `filename_prefix` (routes saves into a shared `Krea2/` folder with style-named files).
 
