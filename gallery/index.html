@@ -164,6 +164,18 @@
   #search:focus { border-color: var(--pink); box-shadow: 0 0 0 3px var(--pink-dim); }
   .result-count { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
   .sort-toggle { margin-left: 0; } /* .mode-toggle's auto-margin belongs to the compare topbar only */
+  .trad-filter {
+    font-family: var(--font);
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .trad-filter.filtering { color: #fff; background: var(--pink); border-color: var(--pink); }
 
   /* ---------- grid ---------- */
   main { max-width: 1500px; margin: 0 auto; padding: 10px clamp(16px, 4vw, 48px) 0; }
@@ -615,6 +627,9 @@
     <button id="sortLib" class="active" title="Library order — styles grouped by tradition">library</button>
     <button id="sortAz" title="Alphabetical">a–z</button>
   </div>
+  <select id="tradFilter" class="trad-filter" aria-label="Filter by tradition" hidden>
+    <option value="">all traditions</option>
+  </select>
   <div class="search-wrap">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
     <input id="search" type="search" placeholder="filter styles…" aria-label="Filter styles by name" autocomplete="off">
@@ -715,6 +730,9 @@
   var activeSection = null;
   var query = "";
   var sortAz = false;         // false = manifest (library) order, true = alphabetical
+  var activeTrad = "";        // "" = all traditions
+  var styleSections = {};     // style name -> tradition wing (from styles.json)
+  var tradOrder = [];         // wings in library order of first appearance
   var filtered = [];          // filtered image entries of active section
   var pinned = [];            // [{section, style, file, thumb}] max 2, FIFO
   var lbIndex = -1;
@@ -725,7 +743,7 @@
   var $ = function (id) { return document.getElementById(id); };
   var els = {
     main: $("main"), tabs: $("tabs"), search: $("search"), resultCount: $("resultCount"),
-    sortLib: $("sortLib"), sortAz: $("sortAz"),
+    sortLib: $("sortLib"), sortAz: $("sortAz"), tradFilter: $("tradFilter"),
     controls: $("controls"), seedBadge: $("seedBadge"),
     subjectDetails: $("subjectDetails"), subjectPrompt: $("subjectPrompt"),
     pinTray: $("pinTray"), compareBtn: $("compareBtn"),
@@ -788,7 +806,16 @@
     function tryFetch(path, next) {
       fetch(path, { cache: "no-cache" })
         .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
-        .then(function (data) { (data || []).forEach(function (e) { styleTexts[e.name] = e.prompt; }); })
+        .then(function (data) {
+        (data || []).forEach(function (e) {
+          styleTexts[e.name] = e.prompt;
+          if (e.section) {
+            styleSections[e.name] = e.section;
+            if (tradOrder.indexOf(e.section) === -1) tradOrder.push(e.section);
+          }
+        });
+        buildTradFilter();
+      })
         .catch(next || function () {});
     }
     tryFetch("styles.json", function () { tryFetch("../styles.json"); });
@@ -866,14 +893,16 @@
     var images = Array.isArray(sec.images) ? sec.images : [];
     var q = query.trim().toLowerCase();
     filtered = images.filter(function (it) {
-      return it && typeof it.style === "string" && it.style.toLowerCase().indexOf(q) !== -1;
+      if (!it || typeof it.style !== "string") return false;
+      if (activeTrad && styleSections[it.style] !== activeTrad) return false;
+      return it.style.toLowerCase().indexOf(q) !== -1;
     });
     if (sortAz) {
       filtered.sort(function (a, b) { return a.style.localeCompare(b.style); });
     }
     renderGrid();
     var label = images.length === 1 ? "style" : "styles";
-    els.resultCount.textContent = q
+    els.resultCount.textContent = (q || activeTrad)
       ? filtered.length + " of " + images.length + " " + label
       : images.length + " " + label;
   }
@@ -947,6 +976,25 @@
     });
     els.main.appendChild(grid);
   }
+
+  // ---------- tradition filter ----------
+  // populated from styles.json section tags, so a library update that adds a
+  // wing shows up here with zero code changes
+  function buildTradFilter() {
+    if (!tradOrder.length) return;
+    tradOrder.forEach(function (t) {
+      var o = document.createElement("option");
+      o.value = t;
+      o.textContent = t.toLowerCase();
+      els.tradFilter.appendChild(o);
+    });
+    els.tradFilter.hidden = false;
+  }
+  els.tradFilter.addEventListener("change", function () {
+    activeTrad = els.tradFilter.value;
+    els.tradFilter.classList.toggle("filtering", !!activeTrad);
+    applyFilter();
+  });
 
   // ---------- sort ----------
   function setSort(az) {

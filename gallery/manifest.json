@@ -259,6 +259,78 @@
      "seed": 1997
     },
     {
+     "style": "Khyleri Style",
+     "file": "krea2/thumbs/Khyleri Style.jpg",
+     "thumb": "krea2/thumbs/Khyleri Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "80s Anime Style",
+     "file": "krea2/thumbs/80s Anime Style.jpg",
+     "thumb": "krea2/thumbs/80s Anime Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Modern Pokémon Anime Style",
+     "file": "krea2/thumbs/Modern Pokémon Anime Style.jpg",
+     "thumb": "krea2/thumbs/Modern Pokémon Anime Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "CLAMP Style",
+     "file": "krea2/thumbs/CLAMP Style.jpg",
+     "thumb": "krea2/thumbs/CLAMP Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Naruto Style",
+     "file": "krea2/thumbs/Naruto Style.jpg",
+     "thumb": "krea2/thumbs/Naruto Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Polished Mobile Gacha Style",
+     "file": "krea2/thumbs/Polished Mobile Gacha Style.jpg",
+     "thumb": "krea2/thumbs/Polished Mobile Gacha Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Crayon Shin-chan Style",
+     "file": "krea2/thumbs/Crayon Shin-chan Style.jpg",
+     "thumb": "krea2/thumbs/Crayon Shin-chan Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Yoshiyuki Sadamoto Style",
+     "file": "krea2/thumbs/Yoshiyuki Sadamoto Style.jpg",
+     "thumb": "krea2/thumbs/Yoshiyuki Sadamoto Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Mecha Anime Style",
+     "file": "krea2/thumbs/Mecha Anime Style.jpg",
+     "thumb": "krea2/thumbs/Mecha Anime Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Osamu Tezuka Style",
+     "file": "krea2/thumbs/Osamu Tezuka Style.jpg",
+     "thumb": "krea2/thumbs/Osamu Tezuka Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Yu-Gi-Oh! Style",
+     "file": "krea2/thumbs/Yu-Gi-Oh Style.jpg",
+     "thumb": "krea2/thumbs/Yu-Gi-Oh Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Cartoon Style",
+     "file": "krea2/thumbs/Cartoon Style.jpg",
+     "thumb": "krea2/thumbs/Cartoon Style.jpg",
+     "seed": 1997
+    },
+    {
      "style": "Invader Zim Style",
      "file": "krea2/thumbs/Invader Zim Style.jpg",
      "thumb": "krea2/thumbs/Invader Zim Style.jpg",
@@ -337,9 +409,9 @@
      "seed": 1997
     },
     {
-     "style": "Cyberpunk",
-     "file": "krea2/thumbs/Cyberpunk.jpg",
-     "thumb": "krea2/thumbs/Cyberpunk.jpg",
+     "style": "Cyberpunk: Edgerunners Style",
+     "file": "krea2/thumbs/Cyberpunk Edgerunners Style.jpg",
+     "thumb": "krea2/thumbs/Cyberpunk Edgerunners Style.jpg",
      "seed": 1997
     },
     {
@@ -358,6 +430,36 @@
      "style": "Toon Shader",
      "file": "krea2/thumbs/Toon Shader.jpg",
      "thumb": "krea2/thumbs/Toon Shader.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Tex Avery Style",
+     "file": "krea2/thumbs/Tex Avery Style.jpg",
+     "thumb": "krea2/thumbs/Tex Avery Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Gravity Falls Style",
+     "file": "krea2/thumbs/Gravity Falls Style.jpg",
+     "thumb": "krea2/thumbs/Gravity Falls Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Futurama Style",
+     "file": "krea2/thumbs/Futurama Style.jpg",
+     "thumb": "krea2/thumbs/Futurama Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Peanuts Cartoon Style",
+     "file": "krea2/thumbs/Peanuts Cartoon Style.jpg",
+     "thumb": "krea2/thumbs/Peanuts Cartoon Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Comics Style",
+     "file": "krea2/thumbs/Comics Style.jpg",
+     "thumb": "krea2/thumbs/Comics Style.jpg",
      "seed": 1997
     },
     {
@@ -427,12 +529,6 @@
      "seed": 1997
     },
     {
-     "style": "Bande Dessinée (Hergé/Goscinny Tradition)",
-     "file": "krea2/thumbs/Bande Dessinée (HergéGoscinny Tradition).jpg",
-     "thumb": "krea2/thumbs/Bande Dessinée (HergéGoscinny Tradition).jpg",
-     "seed": 1997
-    },
-    {
      "style": "Frank Cho Style",
      "file": "krea2/thumbs/Frank Cho Style.jpg",
      "thumb": "krea2/thumbs/Frank Cho Style.jpg",
@@ -454,6 +550,12 @@
      "style": "Archie Comics Style",
      "file": "krea2/thumbs/Archie Comics Style.jpg",
      "thumb": "krea2/thumbs/Archie Comics Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Bande Dessinée (Hergé/Goscinny Tradition)",
+     "file": "krea2/thumbs/Bande Dessinée (HergéGoscinny Tradition).jpg",
+     "thumb": "krea2/thumbs/Bande Dessinée (HergéGoscinny Tradition).jpg",
      "seed": 1997
     },
     {
@@ -541,6 +643,30 @@
      "seed": 1997
     },
     {
+     "style": "Jim Lee Style",
+     "file": "krea2/thumbs/Jim Lee Style.jpg",
+     "thumb": "krea2/thumbs/Jim Lee Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Joe Quesada Style",
+     "file": "krea2/thumbs/Joe Quesada Style.jpg",
+     "thumb": "krea2/thumbs/Joe Quesada Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "glossy Comic-digital art",
+     "file": "krea2/thumbs/glossy Comic-digital art.jpg",
+     "thumb": "krea2/thumbs/glossy Comic-digital art.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Photorealistic Comic Ink-and-Paint Hybrid",
+     "file": "krea2/thumbs/Photorealistic Comic Ink-and-Paint Hybrid.jpg",
+     "thumb": "krea2/thumbs/Photorealistic Comic Ink-and-Paint Hybrid.jpg",
+     "seed": 1997
+    },
+    {
      "style": "Drawing",
      "file": "krea2/thumbs/Drawing.jpg",
      "thumb": "krea2/thumbs/Drawing.jpg",
@@ -586,12 +712,6 @@
      "style": "Sketch",
      "file": "krea2/thumbs/Sketch.jpg",
      "thumb": "krea2/thumbs/Sketch.jpg",
-     "seed": 1997
-    },
-    {
-     "style": "Beatrix Potter Style",
-     "file": "krea2/thumbs/Beatrix Potter Style.jpg",
-     "thumb": "krea2/thumbs/Beatrix Potter Style.jpg",
      "seed": 1997
     },
     {
@@ -679,6 +799,12 @@
      "seed": 1997
     },
     {
+     "style": "Poe-Inspired Illustration",
+     "file": "krea2/thumbs/Poe-Inspired Illustration.jpg",
+     "thumb": "krea2/thumbs/Poe-Inspired Illustration.jpg",
+     "seed": 1997
+    },
+    {
      "style": "Collector Storybook Illustration",
      "file": "krea2/thumbs/Collector Storybook Illustration.jpg",
      "thumb": "krea2/thumbs/Collector Storybook Illustration.jpg",
@@ -709,9 +835,69 @@
      "seed": 1997
     },
     {
+     "style": "Beatrix Potter Style",
+     "file": "krea2/thumbs/Beatrix Potter Style.jpg",
+     "thumb": "krea2/thumbs/Beatrix Potter Style.jpg",
+     "seed": 1997
+    },
+    {
      "style": "Beatrix Potter Style (2)",
      "file": "krea2/thumbs/Beatrix Potter Style (2).jpg",
      "thumb": "krea2/thumbs/Beatrix Potter Style (2).jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Lo-Fi Art",
+     "file": "krea2/thumbs/Lo-Fi Art.jpg",
+     "thumb": "krea2/thumbs/Lo-Fi Art.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Pastel-Toned Cute Illustration (Western-Korean Hybrid)",
+     "file": "krea2/thumbs/Pastel-Toned Cute Illustration (Western-Korean Hybrid).jpg",
+     "thumb": "krea2/thumbs/Pastel-Toned Cute Illustration (Western-Korean Hybrid).jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Glen Keane Style",
+     "file": "krea2/thumbs/Glen Keane Style.jpg",
+     "thumb": "krea2/thumbs/Glen Keane Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Calligraphic Linework",
+     "file": "krea2/thumbs/Calligraphic Linework.jpg",
+     "thumb": "krea2/thumbs/Calligraphic Linework.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Traditional Marker Illustration",
+     "file": "krea2/thumbs/Traditional Marker Illustration.jpg",
+     "thumb": "krea2/thumbs/Traditional Marker Illustration.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Western Cel-Shaded Illustration",
+     "file": "krea2/thumbs/Western Cel-Shaded Illustration.jpg",
+     "thumb": "krea2/thumbs/Western Cel-Shaded Illustration.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Mad Magazine Cover Art",
+     "file": "krea2/thumbs/Mad Magazine Cover Art.jpg",
+     "thumb": "krea2/thumbs/Mad Magazine Cover Art.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Stick-Figure Child Drawing",
+     "file": "krea2/thumbs/Stick-Figure Child Drawing.jpg",
+     "thumb": "krea2/thumbs/Stick-Figure Child Drawing.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Photography",
+     "file": "krea2/thumbs/Photography.jpg",
+     "thumb": "krea2/thumbs/Photography.jpg",
      "seed": 1997
     },
     {
@@ -1033,6 +1219,108 @@
      "seed": 1997
     },
     {
+     "style": "Brett Weston Photography",
+     "file": "krea2/thumbs/Brett Weston Photography.jpg",
+     "thumb": "krea2/thumbs/Brett Weston Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Refined social-media  photography",
+     "file": "krea2/thumbs/Refined social-media  photography.jpg",
+     "thumb": "krea2/thumbs/Refined social-media  photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Halation Style",
+     "file": "krea2/thumbs/Halation Style.jpg",
+     "thumb": "krea2/thumbs/Halation Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Ethereal Memorial Portrait Photography",
+     "file": "krea2/thumbs/Ethereal Memorial Portrait Photography.jpg",
+     "thumb": "krea2/thumbs/Ethereal Memorial Portrait Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "High-Angle Shot Photography",
+     "file": "krea2/thumbs/High-Angle Shot Photography.jpg",
+     "thumb": "krea2/thumbs/High-Angle Shot Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Translucency-Focused Photography",
+     "file": "krea2/thumbs/Translucency-Focused Photography.jpg",
+     "thumb": "krea2/thumbs/Translucency-Focused Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Matrix-Grading Photography",
+     "file": "krea2/thumbs/Matrix-Grading Photography.jpg",
+     "thumb": "krea2/thumbs/Matrix-Grading Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Cosplay Photography",
+     "file": "krea2/thumbs/Cosplay Photography.jpg",
+     "thumb": "krea2/thumbs/Cosplay Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Outer Form Inner Imagery Interplay",
+     "file": "krea2/thumbs/Outer Form Inner Imagery Interplay.jpg",
+     "thumb": "krea2/thumbs/Outer Form Inner Imagery Interplay.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Studio Photography",
+     "file": "krea2/thumbs/Studio Photography.jpg",
+     "thumb": "krea2/thumbs/Studio Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Imperfections-Driven Photography",
+     "file": "krea2/thumbs/Imperfections-Driven Photography.jpg",
+     "thumb": "krea2/thumbs/Imperfections-Driven Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "High-Contrast Photography",
+     "file": "krea2/thumbs/High-Contrast Photography.jpg",
+     "thumb": "krea2/thumbs/High-Contrast Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "John Wick-Inspired Neon Photography",
+     "file": "krea2/thumbs/John Wick-Inspired Neon Photography.jpg",
+     "thumb": "krea2/thumbs/John Wick-Inspired Neon Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Wes Anderson Photography",
+     "file": "krea2/thumbs/Wes Anderson Photography.jpg",
+     "thumb": "krea2/thumbs/Wes Anderson Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Underwater Photography",
+     "file": "krea2/thumbs/Underwater Photography.jpg",
+     "thumb": "krea2/thumbs/Underwater Photography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Mexico Color Grading",
+     "file": "krea2/thumbs/Mexico Color Grading.jpg",
+     "thumb": "krea2/thumbs/Mexico Color Grading.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Design",
+     "file": "krea2/thumbs/Design.jpg",
+     "thumb": "krea2/thumbs/Design.jpg",
+     "seed": 1997
+    },
+    {
      "style": "Butcher Billy Style",
      "file": "krea2/thumbs/Butcher Billy Style.jpg",
      "thumb": "krea2/thumbs/Butcher Billy Style.jpg",
@@ -1183,6 +1471,12 @@
      "seed": 1997
     },
     {
+     "style": "LEGO Set Style",
+     "file": "krea2/thumbs/LEGO Set Style.jpg",
+     "thumb": "krea2/thumbs/LEGO Set Style.jpg",
+     "seed": 1997
+    },
+    {
      "style": "Paper Cutout",
      "file": "krea2/thumbs/Paper Cutout.jpg",
      "thumb": "krea2/thumbs/Paper Cutout.jpg",
@@ -1276,6 +1570,258 @@
      "style": "Quilling",
      "file": "krea2/thumbs/Quilling.jpg",
      "thumb": "krea2/thumbs/Quilling.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Lowbrow Style",
+     "file": "krea2/thumbs/Lowbrow Style.jpg",
+     "thumb": "krea2/thumbs/Lowbrow Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Fortnite Style",
+     "file": "krea2/thumbs/Fortnite Style.jpg",
+     "thumb": "krea2/thumbs/Fortnite Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Coraline Stop-Motion Style",
+     "file": "krea2/thumbs/Coraline Stop-Motion Style.jpg",
+     "thumb": "krea2/thumbs/Coraline Stop-Motion Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Kurzgesagt Style",
+     "file": "krea2/thumbs/Kurzgesagt Style.jpg",
+     "thumb": "krea2/thumbs/Kurzgesagt Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Modern Super Mario (Nintendo) Style",
+     "file": "krea2/thumbs/Modern Super Mario (Nintendo) Style.jpg",
+     "thumb": "krea2/thumbs/Modern Super Mario (Nintendo) Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Star Wars: The Clone Wars Style",
+     "file": "krea2/thumbs/Star Wars The Clone Wars Style.jpg",
+     "thumb": "krea2/thumbs/Star Wars The Clone Wars Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "M.C. Escher Style",
+     "file": "krea2/thumbs/MC Escher Style.jpg",
+     "thumb": "krea2/thumbs/MC Escher Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Vignette-Framed Central Composition",
+     "file": "krea2/thumbs/Vignette-Framed Central Composition.jpg",
+     "thumb": "krea2/thumbs/Vignette-Framed Central Composition.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "1960s Psychedelic Poster Art",
+     "file": "krea2/thumbs/1960s Psychedelic Poster Art.jpg",
+     "thumb": "krea2/thumbs/1960s Psychedelic Poster Art.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Frutiger Aero",
+     "file": "krea2/thumbs/Frutiger Aero.jpg",
+     "thumb": "krea2/thumbs/Frutiger Aero.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Alex Grey Style",
+     "file": "krea2/thumbs/Alex Grey Style.jpg",
+     "thumb": "krea2/thumbs/Alex Grey Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Vignette Tattoo Design (Flat Print Format)",
+     "file": "krea2/thumbs/Vignette Tattoo Design (Flat Print Format).jpg",
+     "thumb": "krea2/thumbs/Vignette Tattoo Design (Flat Print Format).jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Vignette Sticker",
+     "file": "krea2/thumbs/Vignette Sticker.jpg",
+     "thumb": "krea2/thumbs/Vignette Sticker.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Icon/Emoticon Vignette",
+     "file": "krea2/thumbs/IconEmoticon Vignette.jpg",
+     "thumb": "krea2/thumbs/IconEmoticon Vignette.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Blueprint",
+     "file": "krea2/thumbs/Blueprint.jpg",
+     "thumb": "krea2/thumbs/Blueprint.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Bold Painterly Impasto",
+     "file": "krea2/thumbs/Bold Painterly Impasto.jpg",
+     "thumb": "krea2/thumbs/Bold Painterly Impasto.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "The Mitchells vs. The Machines animation Style",
+     "file": "krea2/thumbs/The Mitchells vs The Machines animation Style.jpg",
+     "thumb": "krea2/thumbs/The Mitchells vs The Machines animation Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Spider-Verse Style",
+     "file": "krea2/thumbs/Spider-Verse Style.jpg",
+     "thumb": "krea2/thumbs/Spider-Verse Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Steampunk",
+     "file": "krea2/thumbs/Steampunk.jpg",
+     "thumb": "krea2/thumbs/Steampunk.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Unreal Engine",
+     "file": "krea2/thumbs/Unreal Engine.jpg",
+     "thumb": "krea2/thumbs/Unreal Engine.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Jean-Gabriel Domergue Style",
+     "file": "krea2/thumbs/Jean-Gabriel Domergue Style.jpg",
+     "thumb": "krea2/thumbs/Jean-Gabriel Domergue Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Modern Lithography",
+     "file": "krea2/thumbs/Modern Lithography.jpg",
+     "thumb": "krea2/thumbs/Modern Lithography.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Neon-Based Drawing",
+     "file": "krea2/thumbs/Neon-Based Drawing.jpg",
+     "thumb": "krea2/thumbs/Neon-Based Drawing.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Op-Art Style",
+     "file": "krea2/thumbs/Op-Art Style.jpg",
+     "thumb": "krea2/thumbs/Op-Art Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Overwatch Concept Art",
+     "file": "krea2/thumbs/Overwatch Concept Art.jpg",
+     "thumb": "krea2/thumbs/Overwatch Concept Art.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Psychedelia Style",
+     "file": "krea2/thumbs/Psychedelia Style.jpg",
+     "thumb": "krea2/thumbs/Psychedelia Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Playmobil",
+     "file": "krea2/thumbs/Playmobil.jpg",
+     "thumb": "krea2/thumbs/Playmobil.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Camille Walala Style",
+     "file": "krea2/thumbs/Camille Walala Style.jpg",
+     "thumb": "krea2/thumbs/Camille Walala Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "C.F.A. Voysey illustration",
+     "file": "krea2/thumbs/CFA Voysey illustration.jpg",
+     "thumb": "krea2/thumbs/CFA Voysey illustration.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Neon Halftone Retro-Thriller Illustration",
+     "file": "krea2/thumbs/Neon Halftone Retro-Thriller Illustration.jpg",
+     "thumb": "krea2/thumbs/Neon Halftone Retro-Thriller Illustration.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Topographic Linework Illustration",
+     "file": "krea2/thumbs/Topographic Linework Illustration.jpg",
+     "thumb": "krea2/thumbs/Topographic Linework Illustration.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Negative Space Focused Illustration",
+     "file": "krea2/thumbs/Negative Space Focused Illustration.jpg",
+     "thumb": "krea2/thumbs/Negative Space Focused Illustration.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Collectible Figure",
+     "file": "krea2/thumbs/Collectible Figure.jpg",
+     "thumb": "krea2/thumbs/Collectible Figure.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Tessellation-Based Illustration",
+     "file": "krea2/thumbs/Tessellation-Based Illustration.jpg",
+     "thumb": "krea2/thumbs/Tessellation-Based Illustration.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Neon Sign Design",
+     "file": "krea2/thumbs/Neon Sign Design.jpg",
+     "thumb": "krea2/thumbs/Neon Sign Design.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Plastic Arts Sculpture",
+     "file": "krea2/thumbs/Plastic Arts Sculpture.jpg",
+     "thumb": "krea2/thumbs/Plastic Arts Sculpture.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "PS1 Screenshot",
+     "file": "krea2/thumbs/PS1 Screenshot.jpg",
+     "thumb": "krea2/thumbs/PS1 Screenshot.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Low Relief Sculpture",
+     "file": "krea2/thumbs/Low Relief Sculpture.jpg",
+     "thumb": "krea2/thumbs/Low Relief Sculpture.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "The Sims Game Screenshot",
+     "file": "krea2/thumbs/The Sims Game Screenshot.jpg",
+     "thumb": "krea2/thumbs/The Sims Game Screenshot.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Animal Crossing Style",
+     "file": "krea2/thumbs/Animal Crossing Style.jpg",
+     "thumb": "krea2/thumbs/Animal Crossing Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Partial Wireframe 3D",
+     "file": "krea2/thumbs/Partial Wireframe 3D.jpg",
+     "thumb": "krea2/thumbs/Partial Wireframe 3D.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Digital Painting",
+     "file": "krea2/thumbs/Digital Painting.jpg",
+     "thumb": "krea2/thumbs/Digital Painting.jpg",
      "seed": 1997
     },
     {
@@ -1474,6 +2020,96 @@
      "style": "Loish Ultrarealism",
      "file": "krea2/thumbs/Loish Ultrarealism.jpg",
      "thumb": "krea2/thumbs/Loish Ultrarealism.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "J.C. Leyendecker Style",
+     "file": "krea2/thumbs/JC Leyendecker Style.jpg",
+     "thumb": "krea2/thumbs/JC Leyendecker Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Ismail Inceoglu Style",
+     "file": "krea2/thumbs/Ismail Inceoglu Style.jpg",
+     "thumb": "krea2/thumbs/Ismail Inceoglu Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Faceted Painterly Digital painting",
+     "file": "krea2/thumbs/Faceted Painterly Digital painting.jpg",
+     "thumb": "krea2/thumbs/Faceted Painterly Digital painting.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Sharp-Lined Glossy Semi-Realistic Portrait",
+     "file": "krea2/thumbs/Sharp-Lined Glossy Semi-Realistic Portrait.jpg",
+     "thumb": "krea2/thumbs/Sharp-Lined Glossy Semi-Realistic Portrait.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Aleksi Briclot and Sparth-Inspired Art",
+     "file": "krea2/thumbs/Aleksi Briclot and Sparth-Inspired Art.jpg",
+     "thumb": "krea2/thumbs/Aleksi Briclot and Sparth-Inspired Art.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Marvel Rivals Character Design (Painterly Comic Illustration)",
+     "file": "krea2/thumbs/Marvel Rivals Character Design (Painterly Comic Illustration).jpg",
+     "thumb": "krea2/thumbs/Marvel Rivals Character Design (Painterly Comic Illustration).jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Crisp Semi-Realistic Anime Illustration",
+     "file": "krea2/thumbs/Crisp Semi-Realistic Anime Illustration.jpg",
+     "thumb": "krea2/thumbs/Crisp Semi-Realistic Anime Illustration.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Glossy Semi-Realistic",
+     "file": "krea2/thumbs/Glossy Semi-Realistic.jpg",
+     "thumb": "krea2/thumbs/Glossy Semi-Realistic.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Ilya Kuvshinov Style",
+     "file": "krea2/thumbs/Ilya Kuvshinov Style.jpg",
+     "thumb": "krea2/thumbs/Ilya Kuvshinov Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Luminous Pastel",
+     "file": "krea2/thumbs/Luminous Pastel.jpg",
+     "thumb": "krea2/thumbs/Luminous Pastel.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Melancholic Hyperrealism",
+     "file": "krea2/thumbs/Melancholic Hyperrealism.jpg",
+     "thumb": "krea2/thumbs/Melancholic Hyperrealism.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "MTG (Magic: The Gathering) Style",
+     "file": "krea2/thumbs/MTG (Magic The Gathering) Style.jpg",
+     "thumb": "krea2/thumbs/MTG (Magic The Gathering) Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Tom Bagshaw-Inspired Digital Painting",
+     "file": "krea2/thumbs/Tom Bagshaw-Inspired Digital Painting.jpg",
+     "thumb": "krea2/thumbs/Tom Bagshaw-Inspired Digital Painting.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Action Movie Poster with Diagonal Speed Strokes",
+     "file": "krea2/thumbs/Action Movie Poster with Diagonal Speed Strokes.jpg",
+     "thumb": "krea2/thumbs/Action Movie Poster with Diagonal Speed Strokes.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Painting",
+     "file": "krea2/thumbs/Painting.jpg",
+     "thumb": "krea2/thumbs/Painting.jpg",
      "seed": 1997
     },
     {
@@ -1684,6 +2320,66 @@
      "style": "Thick Brushstrokes Painting",
      "file": "krea2/thumbs/Thick Brushstrokes Painting.jpg",
      "thumb": "krea2/thumbs/Thick Brushstrokes Painting.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Ashcan School Style",
+     "file": "krea2/thumbs/Ashcan School Style.jpg",
+     "thumb": "krea2/thumbs/Ashcan School Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Charles Tunnicliffe Style",
+     "file": "krea2/thumbs/Charles Tunnicliffe Style.jpg",
+     "thumb": "krea2/thumbs/Charles Tunnicliffe Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Cloisonnism",
+     "file": "krea2/thumbs/Cloisonnism.jpg",
+     "thumb": "krea2/thumbs/Cloisonnism.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Salvador Dalí Style",
+     "file": "krea2/thumbs/Salvador Dalí Style.jpg",
+     "thumb": "krea2/thumbs/Salvador Dalí Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Contemporary Gothic Art",
+     "file": "krea2/thumbs/Contemporary Gothic Art.jpg",
+     "thumb": "krea2/thumbs/Contemporary Gothic Art.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Norman Rockwell Style",
+     "file": "krea2/thumbs/Norman Rockwell Style.jpg",
+     "thumb": "krea2/thumbs/Norman Rockwell Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Edvard Munch Style",
+     "file": "krea2/thumbs/Edvard Munch Style.jpg",
+     "thumb": "krea2/thumbs/Edvard Munch Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Modern Klimt-Inspired Flat Collage Art",
+     "file": "krea2/thumbs/Modern Klimt-Inspired Flat Collage Art.jpg",
+     "thumb": "krea2/thumbs/Modern Klimt-Inspired Flat Collage Art.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Henri Matisse Style",
+     "file": "krea2/thumbs/Henri Matisse Style.jpg",
+     "thumb": "krea2/thumbs/Henri Matisse Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Andy Warhol Style",
+     "file": "krea2/thumbs/Andy Warhol Style.jpg",
+     "thumb": "krea2/thumbs/Andy Warhol Style.jpg",
      "seed": 1997
     },
     {
