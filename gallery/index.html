@@ -163,6 +163,7 @@
   #search::placeholder { color: var(--muted); }
   #search:focus { border-color: var(--pink); box-shadow: 0 0 0 3px var(--pink-dim); }
   .result-count { font-size: 12.5px; color: var(--muted); white-space: nowrap; }
+  .sort-toggle { margin-left: 0; } /* .mode-toggle's auto-margin belongs to the compare topbar only */
 
   /* ---------- grid ---------- */
   main { max-width: 1500px; margin: 0 auto; padding: 10px clamp(16px, 4vw, 48px) 0; }
@@ -597,6 +598,10 @@
 
 <div class="controls" id="controls" hidden>
   <nav class="tabs" id="tabs" aria-label="Sections"></nav>
+  <div class="mode-toggle sort-toggle" role="tablist" aria-label="Sort order">
+    <button id="sortLib" class="active" title="Library order — styles grouped by tradition">library</button>
+    <button id="sortAz" title="Alphabetical">a–z</button>
+  </div>
   <div class="search-wrap">
     <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
     <input id="search" type="search" placeholder="filter styles…" aria-label="Filter styles by name" autocomplete="off">
@@ -696,6 +701,7 @@
   var sectionKeys = [];
   var activeSection = null;
   var query = "";
+  var sortAz = false;         // false = manifest (library) order, true = alphabetical
   var filtered = [];          // filtered image entries of active section
   var pinned = [];            // [{section, style, file, thumb}] max 2, FIFO
   var lbIndex = -1;
@@ -706,6 +712,7 @@
   var $ = function (id) { return document.getElementById(id); };
   var els = {
     main: $("main"), tabs: $("tabs"), search: $("search"), resultCount: $("resultCount"),
+    sortLib: $("sortLib"), sortAz: $("sortAz"),
     controls: $("controls"), seedBadge: $("seedBadge"),
     subjectDetails: $("subjectDetails"), subjectPrompt: $("subjectPrompt"),
     pinTray: $("pinTray"), compareBtn: $("compareBtn"),
@@ -848,6 +855,9 @@
     filtered = images.filter(function (it) {
       return it && typeof it.style === "string" && it.style.toLowerCase().indexOf(q) !== -1;
     });
+    if (sortAz) {
+      filtered.sort(function (a, b) { return a.style.localeCompare(b.style); });
+    }
     renderGrid();
     var label = images.length === 1 ? "style" : "styles";
     els.resultCount.textContent = q
@@ -924,6 +934,17 @@
     });
     els.main.appendChild(grid);
   }
+
+  // ---------- sort ----------
+  function setSort(az) {
+    if (sortAz === az) return;
+    sortAz = az;
+    els.sortLib.classList.toggle("active", !az);
+    els.sortAz.classList.toggle("active", az);
+    applyFilter();
+  }
+  els.sortLib.addEventListener("click", function () { setSort(false); });
+  els.sortAz.addEventListener("click", function () { setSort(true); });
 
   // ---------- search ----------
   var searchTimer = null;
