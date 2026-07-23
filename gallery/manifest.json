@@ -7,69 +7,15 @@
    "template": "Style: {style}. Subject: {prompt}",
    "images": [
     {
-     "style": "Ghibli Style",
-     "file": "krea2/thumbs/Ghibli Style.jpg",
-     "thumb": "krea2/thumbs/Ghibli Style.jpg",
-     "seed": 1997
-    },
-    {
-     "style": "Akira Toriyama Style",
-     "file": "krea2/thumbs/Akira Toriyama Style.jpg",
-     "thumb": "krea2/thumbs/Akira Toriyama Style.jpg",
-     "seed": 1997
-    },
-    {
-     "style": "Berserk Manga Style",
-     "file": "krea2/thumbs/Berserk Manga Style.jpg",
-     "thumb": "krea2/thumbs/Berserk Manga Style.jpg",
-     "seed": 1997
-    },
-    {
-     "style": "Moebius-Inspired Illustration",
-     "file": "krea2/thumbs/Moebius-Inspired Illustration.jpg",
-     "thumb": "krea2/thumbs/Moebius-Inspired Illustration.jpg",
-     "seed": 1997
-    },
-    {
-     "style": "Bruce Timm Noir",
-     "file": "krea2/thumbs/Bruce Timm Noir.jpg",
-     "thumb": "krea2/thumbs/Bruce Timm Noir.jpg",
-     "seed": 1997
-    },
-    {
-     "style": "Solo Leveling Art",
-     "file": "krea2/thumbs/Solo Leveling Art.jpg",
-     "thumb": "krea2/thumbs/Solo Leveling Art.jpg",
-     "seed": 1997
-    },
-    {
-     "style": "Pop Art",
-     "file": "krea2/thumbs/Pop Art.jpg",
-     "thumb": "krea2/thumbs/Pop Art.jpg",
-     "seed": 1997
-    },
-    {
-     "style": "Watercolor Painting",
-     "file": "krea2/thumbs/Watercolor Painting.jpg",
-     "thumb": "krea2/thumbs/Watercolor Painting.jpg",
-     "seed": 1997
-    },
-    {
-     "style": "Film Noir",
-     "file": "krea2/thumbs/Film Noir.jpg",
-     "thumb": "krea2/thumbs/Film Noir.jpg",
-     "seed": 1997
-    },
-    {
-     "style": "Alex Ross Style",
-     "file": "krea2/thumbs/Alex Ross Style.jpg",
-     "thumb": "krea2/thumbs/Alex Ross Style.jpg",
-     "seed": 1997
-    },
-    {
      "style": "Anime Style",
      "file": "krea2/thumbs/Anime Style.jpg",
      "thumb": "krea2/thumbs/Anime Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Ghibli Style",
+     "file": "krea2/thumbs/Ghibli Style.jpg",
+     "thumb": "krea2/thumbs/Ghibli Style.jpg",
      "seed": 1997
     },
     {
@@ -88,6 +34,12 @@
      "style": "Akira Style",
      "file": "krea2/thumbs/Akira Style.jpg",
      "thumb": "krea2/thumbs/Akira Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Akira Toriyama Style",
+     "file": "krea2/thumbs/Akira Toriyama Style.jpg",
+     "thumb": "krea2/thumbs/Akira Toriyama Style.jpg",
      "seed": 1997
     },
     {
@@ -118,6 +70,12 @@
      "style": "My Hero Academia Style",
      "file": "krea2/thumbs/My Hero Academia Style.jpg",
      "thumb": "krea2/thumbs/My Hero Academia Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Berserk Manga Style",
+     "file": "krea2/thumbs/Berserk Manga Style.jpg",
+     "thumb": "krea2/thumbs/Berserk Manga Style.jpg",
      "seed": 1997
     },
     {
@@ -196,6 +154,12 @@
      "style": "Shindol Style",
      "file": "krea2/thumbs/Shindol Style.jpg",
      "thumb": "krea2/thumbs/Shindol Style.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Solo Leveling Art",
+     "file": "krea2/thumbs/Solo Leveling Art.jpg",
+     "thumb": "krea2/thumbs/Solo Leveling Art.jpg",
      "seed": 1997
     },
     {
@@ -379,6 +343,12 @@
      "seed": 1997
     },
     {
+     "style": "Bruce Timm Noir",
+     "file": "krea2/thumbs/Bruce Timm Noir.jpg",
+     "thumb": "krea2/thumbs/Bruce Timm Noir.jpg",
+     "seed": 1997
+    },
+    {
      "style": "Arcane Animation Still",
      "file": "krea2/thumbs/Arcane Animation Still.jpg",
      "thumb": "krea2/thumbs/Arcane Animation Still.jpg",
@@ -388,6 +358,12 @@
      "style": "Toon Shader",
      "file": "krea2/thumbs/Toon Shader.jpg",
      "thumb": "krea2/thumbs/Toon Shader.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Alex Ross Style",
+     "file": "krea2/thumbs/Alex Ross Style.jpg",
+     "thumb": "krea2/thumbs/Alex Ross Style.jpg",
      "seed": 1997
     },
     {
@@ -550,6 +526,12 @@
      "style": "Clean Line Art",
      "file": "krea2/thumbs/Clean Line Art.jpg",
      "thumb": "krea2/thumbs/Clean Line Art.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Moebius-Inspired Illustration",
+     "file": "krea2/thumbs/Moebius-Inspired Illustration.jpg",
+     "thumb": "krea2/thumbs/Moebius-Inspired Illustration.jpg",
      "seed": 1997
     },
     {
@@ -886,6 +868,12 @@
      "style": "Hitchcockian Photo",
      "file": "krea2/thumbs/Hitchcockian Photo.jpg",
      "thumb": "krea2/thumbs/Hitchcockian Photo.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Film Noir",
+     "file": "krea2/thumbs/Film Noir.jpg",
+     "thumb": "krea2/thumbs/Film Noir.jpg",
      "seed": 1997
     },
     {
@@ -1675,9 +1663,21 @@
      "seed": 1997
     },
     {
+     "style": "Watercolor Painting",
+     "file": "krea2/thumbs/Watercolor Painting.jpg",
+     "thumb": "krea2/thumbs/Watercolor Painting.jpg",
+     "seed": 1997
+    },
+    {
      "style": "Contemporary Oil Painting",
      "file": "krea2/thumbs/Contemporary Oil Painting.jpg",
      "thumb": "krea2/thumbs/Contemporary Oil Painting.jpg",
+     "seed": 1997
+    },
+    {
+     "style": "Pop Art",
+     "file": "krea2/thumbs/Pop Art.jpg",
+     "thumb": "krea2/thumbs/Pop Art.jpg",
      "seed": 1997
     },
     {
@@ -1694,6 +1694,5 @@
     }
    ]
   }
- },
- "demo_note": "512px demo set — clone the repo and run the batch scripts for full-res on your own subject"
+ }
 }
