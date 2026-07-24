@@ -1,0 +1,10 @@
+[
+  {"name":"Slim Build","prompt":"a naturally slim body with balanced proportions and subtle muscle definition","section":"Build"},
+  {"name":"Athletic Build","prompt":"an athletic body with functional muscle definition, balanced proportions, and a strong natural frame","section":"Build"},
+  {"name":"Muscular Build","prompt":"a heavily muscular body with prominent but anatomically believable muscle development","section":"Build"},
+  {"name":"Curvy Build","prompt":"a naturally curvy body with a fuller silhouette and balanced realistic proportions","section":"Build"},
+  {"name":"Plus-Size Build","prompt":"a plus-size body with natural weight distribution, realistic contours, and anatomically consistent proportions","section":"Build"},
+  {"name":"Tall Build","prompt":"a tall elongated body with natural limb proportions and a balanced frame","section":"Proportion"},
+  {"name":"Short Build","prompt":"a shorter adult body with natural compact proportions and realistic limb length","section":"Proportion"},
+  {"name":"Wheelchair User","prompt":"a wheelchair user positioned naturally in a properly proportioned modern wheelchair, with physically believable posture and interaction with the chair","section":"Mobility"}
+]
