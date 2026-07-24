@@ -1,18 +1,20 @@
 """Clio Prompt Builder — modular prompt dropdowns for ComfyUI.
 
 Libraries are stored as JSON files beside this node. The accompanying frontend
-extension provides a drag-and-drop editor for arranging dropdown priority.
+extension provides searchable dropdowns and a drag-and-drop priority editor.
 """
 
 import json
 import os
+import random
 import re
-from typing import Dict, List
+from typing import Dict, List, Tuple
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 _PROMPTS_DIR = os.path.join(_DIR, "prompts")
 _STYLES_PATH = os.path.join(_DIR, "styles.json")
 _NONE = "✨ none"
+_RANDOM = "🎲 random"
 _DEFAULT_ORDER = [
     "subject",
     "body",
@@ -50,13 +52,22 @@ def _prompt_path(filename: str) -> str:
 
 
 def _dropdown(library: Dict[str, str]):
-    return [_NONE] + list(library.keys())
+    return [_NONE, _RANDOM] + list(library.keys())
 
 
-def _selected_prompt(selection: str, library: Dict[str, str]) -> str:
-    if selection == _NONE:
-        return ""
-    return library.get(selection, "").strip()
+def _resolve_selection(selection: str, library: Dict[str, str]) -> Tuple[str, str]:
+    """Return the resolved display name and prompt text for a dropdown selection."""
+    if selection == _NONE or not selection:
+        return _NONE, ""
+
+    if selection == _RANDOM:
+        choices = list(library.keys())
+        if not choices:
+            return _NONE, ""
+        resolved_name = random.choice(choices)
+        return resolved_name, library.get(resolved_name, "").strip()
+
+    return selection, library.get(selection, "").strip()
 
 
 def _clean_fragment(fragment: str) -> str:
@@ -149,8 +160,8 @@ class ClioPromptBuilder:
     FUNCTION = "build_prompt"
     CATEGORY = "Clio Prompt Builder"
     DESCRIPTION = (
-        "Builds a natural-language image prompt from draggable subject, appearance, "
-        "clothing, pose, environment, and visual-style libraries."
+        "Builds a natural-language image prompt from searchable, draggable subject, "
+        "appearance, clothing, pose, environment, and visual-style libraries."
     )
 
     def build_prompt(
@@ -171,35 +182,41 @@ class ClioPromptBuilder:
         prefix="",
         suffix="",
     ):
-        subjects = _load_library(_prompt_path("subjects.json"))
-        skin_types = _load_library(_prompt_path("skin_types.json"))
-        hair_types = _load_library(_prompt_path("hair_types.json"))
-        hair_styles = _load_library(_prompt_path("hair_styles.json"))
-        eyes_library = _load_library(_prompt_path("eyes.json"))
-        mouths = _load_library(_prompt_path("mouths.json"))
-        bodies = _load_library(_prompt_path("bodies.json"))
-        clothing_styles = _load_library(_prompt_path("clothing_styles.json"))
-        positions = _load_library(_prompt_path("positions.json"))
-        environments = _load_library(_prompt_path("environments.json"))
-        styles = _load_library(_STYLES_PATH)
+        libraries = {
+            "subject": _load_library(_prompt_path("subjects.json")),
+            "body": _load_library(_prompt_path("bodies.json")),
+            "skin_type": _load_library(_prompt_path("skin_types.json")),
+            "hair_type": _load_library(_prompt_path("hair_types.json")),
+            "hair_style": _load_library(_prompt_path("hair_styles.json")),
+            "eyes": _load_library(_prompt_path("eyes.json")),
+            "mouth": _load_library(_prompt_path("mouths.json")),
+            "clothing_style": _load_library(_prompt_path("clothing_styles.json")),
+            "position": _load_library(_prompt_path("positions.json")),
+            "environment": _load_library(_prompt_path("environments.json")),
+            "style": _load_library(_STYLES_PATH),
+        }
+        selections = {
+            "subject": subject,
+            "body": body,
+            "skin_type": skin_type,
+            "hair_type": hair_type,
+            "hair_style": hair_style,
+            "eyes": eyes,
+            "mouth": mouth,
+            "clothing_style": clothing_style,
+            "position": position,
+            "environment": environment,
+            "style": style,
+        }
 
-        fragments = {
-            "subject": _selected_prompt(subject, subjects),
-            "body": _selected_prompt(body, bodies),
-            "skin_type": _selected_prompt(skin_type, skin_types),
-            "hair_type": _selected_prompt(hair_type, hair_types),
-            "hair_style": _selected_prompt(hair_style, hair_styles),
-            "eyes": _selected_prompt(eyes, eyes_library),
-            "mouth": _selected_prompt(mouth, mouths),
-            "clothing_style": _selected_prompt(clothing_style, clothing_styles),
-            "position": _selected_prompt(position, positions),
-            "environment": _selected_prompt(environment, environments),
-            "style": _selected_prompt(style, styles),
+        resolved = {
+            name: _resolve_selection(selections[name], libraries[name])
+            for name in _DEFAULT_ORDER
         }
 
         ordered_fragments = []
         for name in _parse_order(dropdown_order):
-            text = fragments.get(name, "")
+            _resolved_name, text = resolved.get(name, (_NONE, ""))
             if not text:
                 continue
             if name == "style":
@@ -216,7 +233,8 @@ class ClioPromptBuilder:
             if part and part.strip()
         )
 
-        style_name = style if style != _NONE else "unstyled"
+        resolved_style_name = resolved["style"][0]
+        style_name = resolved_style_name if resolved_style_name != _NONE else "unstyled"
         safe_name = "".join(
             character
             for character in style_name
