@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Casual Streetwear",
+    "prompt": "modern casual streetwear with layered everyday clothing, relaxed proportions, clean sneakers, and contemporary urban styling",
+    "section": "Casual"
+  },
+  {
+    "name": "Minimalist Casual",
+    "prompt": "minimal casual clothing with clean silhouettes, neutral fabrics, restrained detailing, and carefully balanced proportions",
+    "section": "Casual"
+  },
+  {
+    "name": "Elegant Evening Wear",
+    "prompt": "refined formal evening clothing with elegant tailoring, premium fabric, carefully structured silhouettes, and sophisticated detailing",
+    "section": "Formal"
+  },
+  {
+    "name": "Business Formal",
+    "prompt": "precisely tailored business clothing with structured lines, professional proportions, polished materials, and restrained accessories",
+    "section": "Formal"
+  },
+  {
+    "name": "1970s Fashion",
+    "prompt": "authentic 1970s clothing with flared silhouettes, wide collars, textured fabrics, warm patterned materials, and period-accurate accessories",
+    "section": "Historical"
+  },
+  {
+    "name": "1980s Fashion",
+    "prompt": "bold 1980s clothing with strong shoulders, layered silhouettes, vivid graphic details, glossy fabrics, and period-accurate accessories",
+    "section": "Historical"
+  },
+  {
+    "name": "Victorian Fashion",
+    "prompt": "historically inspired Victorian clothing with layered structured garments, fitted tailoring, ornate fabric work, and period-appropriate detailing",
+    "section": "Historical"
+  },
+  {
+    "name": "Cyberpunk Clothing",
+    "prompt": "layered futuristic street clothing with technical fabrics, modular panels, utility straps, illuminated accents, and worn urban detailing",
+    "section": "Science Fiction"
+  },
+  {
+    "name": "Spacefaring Uniform",
+    "prompt": "a practical futuristic spacefaring uniform with fitted technical layers, reinforced seams, modular equipment attachments, and restrained insignia",
+    "section": "Science Fiction"
+  },
+  {
+    "name": "Fantasy Armor",
+    "prompt": "detailed fantasy armor with fitted protective plates, layered leather and fabric components, engraved metalwork, and practical articulated construction",
+    "section": "Fantasy"
+  },
+  {
+    "name": "Fantasy Robes",
+    "prompt": "flowing fantasy robes with layered fabric, ornate trim, symbolic embroidery, and elegant movement suited to a magical setting",
+    "section": "Fantasy"
+  },
+  {
+    "name": "Post-Apocalyptic Clothing",
+    "prompt": "weathered survival clothing assembled from repaired fabric, scavenged protective layers, utility belts, practical boots, and visibly worn materials",
+    "section": "Post-Apocalyptic"
+  },
+  {
+    "name": "Athletic Wear",
+    "prompt": "modern athletic clothing with breathable fitted fabrics, ergonomic seams, practical support, and clean performance-focused styling",
+    "section": "Sports"
+  },
+  {
+    "name": "Bohemian Fashion",
+    "prompt": "relaxed bohemian clothing with flowing layered fabrics, handcrafted patterns, natural textures, and eclectic accessories",
+    "section": "Alternative"
+  },
+  {
+    "name": "Gothic Fashion",
+    "prompt": "dark gothic clothing with layered black fabrics, fitted silhouettes, ornate metal details, lace accents, and dramatic romantic styling",
+    "section": "Alternative"
+  }
+]
