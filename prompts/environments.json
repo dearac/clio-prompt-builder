@@ -1,0 +1,14 @@
+[
+  {"name":"Dark New York Street","prompt":"a dark New York City street at night with weathered buildings, distant traffic, damp pavement, scattered storefront lighting, and layered urban depth","section":"Urban"},
+  {"name":"Neon Cyberpunk Alley","prompt":"a narrow futuristic alley filled with neon signage, wet reflective pavement, exposed infrastructure, haze, and dense urban detail","section":"Urban"},
+  {"name":"Luxury Studio","prompt":"a spacious professional photography studio with a seamless backdrop, controlled lighting equipment, and a clean premium atmosphere","section":"Studio"},
+  {"name":"Minimal Black Background","prompt":"a seamless pure black environment with no visible horizon, objects, texture, or background distractions","section":"Studio"},
+  {"name":"Minimal White Background","prompt":"a seamless pure white environment with no visible horizon, objects, texture, or background distractions","section":"Studio"},
+  {"name":"Ancient Forest","prompt":"an ancient dense forest filled with massive trees, moss-covered roots, soft mist, filtered daylight, and layered natural foliage","section":"Nature"},
+  {"name":"Mountain Lake","prompt":"a clear mountain lake surrounded by rugged peaks, evergreen forest, natural shoreline detail, and atmospheric distance","section":"Nature"},
+  {"name":"Desert Dunes","prompt":"vast wind-shaped desert dunes with fine sand texture, distant heat haze, and an open uninterrupted horizon","section":"Nature"},
+  {"name":"Futuristic City","prompt":"a vast futuristic city with towering architecture, layered transportation systems, luminous signage, and dense atmospheric depth","section":"Science Fiction"},
+  {"name":"Gothic Castle","prompt":"a monumental gothic castle with pointed arches, weathered stone, towering spires, dramatic shadow, and an ominous old-world atmosphere","section":"Fantasy"},
+  {"name":"Cozy Apartment","prompt":"a lived-in cozy apartment with warm practical lighting, layered personal objects, soft furnishings, and realistic domestic detail","section":"Interior"},
+  {"name":"1970s Nightclub","prompt":"a crowded 1970s nightclub with smoky air, warm colored spotlights, mirrored surfaces, period furniture, and dense analog atmosphere","section":"Interior"}
+]
