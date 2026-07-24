@@ -24,6 +24,7 @@ _DEFAULT_ORDER = [
     "eyes",
     "mouth",
     "clothing_style",
+    "view_style",
     "position",
     "environment",
     "style",
@@ -76,7 +77,11 @@ def _clean_fragment(fragment: str) -> str:
 
 
 def _join_fragments(*fragments: str) -> str:
-    cleaned = [_clean_fragment(fragment) for fragment in fragments if fragment and fragment.strip()]
+    cleaned = [
+        _clean_fragment(fragment)
+        for fragment in fragments
+        if fragment and fragment.strip()
+    ]
     return ". ".join(cleaned) + ("." if cleaned else "")
 
 
@@ -113,6 +118,7 @@ class ClioPromptBuilder:
         mouths = _load_library(_prompt_path("mouths.json"))
         bodies = _load_library(_prompt_path("bodies.json"))
         clothing_styles = _load_library(_prompt_path("clothing_styles.json"))
+        view_styles = _load_library(_prompt_path("view_styles.json"))
         positions = _load_library(_prompt_path("positions.json"))
         environments = _load_library(_prompt_path("environments.json"))
         styles = _load_library(_STYLES_PATH)
@@ -131,6 +137,7 @@ class ClioPromptBuilder:
                 "mouth": (_dropdown(mouths), {"default": _NONE}),
                 "body": (_dropdown(bodies), {"default": _NONE}),
                 "clothing_style": (_dropdown(clothing_styles), {"default": _NONE}),
+                "view_style": (_dropdown(view_styles), {"default": _NONE}),
                 "position": (_dropdown(positions), {"default": _NONE}),
                 "environment": (_dropdown(environments), {"default": _NONE}),
                 "style": (_dropdown(styles), {"default": _NONE}),
@@ -161,7 +168,7 @@ class ClioPromptBuilder:
     CATEGORY = "Clio Prompt Builder"
     DESCRIPTION = (
         "Builds a natural-language image prompt from searchable, draggable subject, "
-        "appearance, clothing, pose, environment, and visual-style libraries."
+        "appearance, clothing, viewpoint, pose, environment, and visual-style libraries."
     )
 
     @classmethod
@@ -176,6 +183,7 @@ class ClioPromptBuilder:
         mouth,
         body,
         clothing_style,
+        view_style,
         position,
         environment,
         style,
@@ -192,6 +200,7 @@ class ClioPromptBuilder:
             mouth,
             body,
             clothing_style,
+            view_style,
             position,
             environment,
             style,
@@ -217,6 +226,7 @@ class ClioPromptBuilder:
         mouth,
         body,
         clothing_style,
+        view_style,
         position,
         environment,
         style,
@@ -233,6 +243,7 @@ class ClioPromptBuilder:
             "eyes": _load_library(_prompt_path("eyes.json")),
             "mouth": _load_library(_prompt_path("mouths.json")),
             "clothing_style": _load_library(_prompt_path("clothing_styles.json")),
+            "view_style": _load_library(_prompt_path("view_styles.json")),
             "position": _load_library(_prompt_path("positions.json")),
             "environment": _load_library(_prompt_path("environments.json")),
             "style": _load_library(_STYLES_PATH),
@@ -246,6 +257,7 @@ class ClioPromptBuilder:
             "eyes": eyes,
             "mouth": mouth,
             "clothing_style": clothing_style,
+            "view_style": view_style,
             "position": position,
             "environment": environment,
             "style": style,
@@ -265,6 +277,8 @@ class ClioPromptBuilder:
                 ordered_fragments.append(f"Visual style: {_clean_fragment(text)}")
             elif name == "clothing_style":
                 ordered_fragments.append(f"Clothing: {_clean_fragment(text)}")
+            elif name == "view_style":
+                ordered_fragments.append(f"Viewpoint and camera perspective: {_clean_fragment(text)}")
             else:
                 ordered_fragments.append(text)
 
