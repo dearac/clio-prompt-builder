@@ -1,18 +1,31 @@
 """Clio Prompt Builder — modular prompt dropdowns for ComfyUI.
 
-Libraries are stored as JSON files beside this node. Refresh the ComfyUI browser
-page after editing a library to reload its dropdown choices.
+Libraries are stored as JSON files beside this node. The accompanying frontend
+extension provides a drag-and-drop editor for arranging dropdown priority.
 """
 
 import json
 import os
 import re
-from typing import Dict
+from typing import Dict, List
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 _PROMPTS_DIR = os.path.join(_DIR, "prompts")
 _STYLES_PATH = os.path.join(_DIR, "styles.json")
 _NONE = "✨ none"
+_DEFAULT_ORDER = [
+    "subject",
+    "body",
+    "skin_type",
+    "hair_type",
+    "hair_style",
+    "eyes",
+    "mouth",
+    "clothing_style",
+    "position",
+    "environment",
+    "style",
+]
 
 
 def _load_library(path: str) -> Dict[str, str]:
@@ -56,6 +69,28 @@ def _join_fragments(*fragments: str) -> str:
     return ". ".join(cleaned) + ("." if cleaned else "")
 
 
+def _parse_order(raw_order: str) -> List[str]:
+    """Return a valid, complete dropdown order from serialized frontend state."""
+    try:
+        requested = json.loads(raw_order) if raw_order else []
+    except (json.JSONDecodeError, TypeError):
+        requested = []
+
+    if not isinstance(requested, list):
+        requested = []
+
+    valid = []
+    for name in requested:
+        if name in _DEFAULT_ORDER and name not in valid:
+            valid.append(name)
+
+    for name in _DEFAULT_ORDER:
+        if name not in valid:
+            valid.append(name)
+
+    return valid
+
+
 class ClioPromptBuilder:
     @classmethod
     def INPUT_TYPES(cls):
@@ -66,6 +101,7 @@ class ClioPromptBuilder:
         eyes = _load_library(_prompt_path("eyes.json"))
         mouths = _load_library(_prompt_path("mouths.json"))
         bodies = _load_library(_prompt_path("bodies.json"))
+        clothing_styles = _load_library(_prompt_path("clothing_styles.json"))
         positions = _load_library(_prompt_path("positions.json"))
         environments = _load_library(_prompt_path("environments.json"))
         styles = _load_library(_STYLES_PATH)
@@ -83,9 +119,18 @@ class ClioPromptBuilder:
                 "eyes": (_dropdown(eyes), {"default": _NONE}),
                 "mouth": (_dropdown(mouths), {"default": _NONE}),
                 "body": (_dropdown(bodies), {"default": _NONE}),
+                "clothing_style": (_dropdown(clothing_styles), {"default": _NONE}),
                 "position": (_dropdown(positions), {"default": _NONE}),
                 "environment": (_dropdown(environments), {"default": _NONE}),
                 "style": (_dropdown(styles), {"default": _NONE}),
+                "dropdown_order": (
+                    "STRING",
+                    {
+                        "default": json.dumps(_DEFAULT_ORDER),
+                        "multiline": False,
+                        "dynamicPrompts": False,
+                    },
+                ),
             },
             "optional": {
                 "prefix": (
@@ -104,8 +149,8 @@ class ClioPromptBuilder:
     FUNCTION = "build_prompt"
     CATEGORY = "Clio Prompt Builder"
     DESCRIPTION = (
-        "Builds a natural-language image prompt from selectable subject, appearance, "
-        "pose, environment, and visual-style libraries."
+        "Builds a natural-language image prompt from draggable subject, appearance, "
+        "clothing, pose, environment, and visual-style libraries."
     )
 
     def build_prompt(
@@ -118,9 +163,11 @@ class ClioPromptBuilder:
         eyes,
         mouth,
         body,
+        clothing_style,
         position,
         environment,
         style,
+        dropdown_order,
         prefix="",
         suffix="",
     ):
@@ -131,29 +178,41 @@ class ClioPromptBuilder:
         eyes_library = _load_library(_prompt_path("eyes.json"))
         mouths = _load_library(_prompt_path("mouths.json"))
         bodies = _load_library(_prompt_path("bodies.json"))
+        clothing_styles = _load_library(_prompt_path("clothing_styles.json"))
         positions = _load_library(_prompt_path("positions.json"))
         environments = _load_library(_prompt_path("environments.json"))
         styles = _load_library(_STYLES_PATH)
 
-        character_prompt = _join_fragments(
-            custom_prompt,
-            _selected_prompt(subject, subjects),
-            _selected_prompt(body, bodies),
-            _selected_prompt(skin_type, skin_types),
-            _selected_prompt(hair_type, hair_types),
-            _selected_prompt(hair_style, hair_styles),
-            _selected_prompt(eyes, eyes_library),
-            _selected_prompt(mouth, mouths),
-            _selected_prompt(position, positions),
-        )
+        fragments = {
+            "subject": _selected_prompt(subject, subjects),
+            "body": _selected_prompt(body, bodies),
+            "skin_type": _selected_prompt(skin_type, skin_types),
+            "hair_type": _selected_prompt(hair_type, hair_types),
+            "hair_style": _selected_prompt(hair_style, hair_styles),
+            "eyes": _selected_prompt(eyes, eyes_library),
+            "mouth": _selected_prompt(mouth, mouths),
+            "clothing_style": _selected_prompt(clothing_style, clothing_styles),
+            "position": _selected_prompt(position, positions),
+            "environment": _selected_prompt(environment, environments),
+            "style": _selected_prompt(style, styles),
+        }
 
-        scene_prompt = _join_fragments(_selected_prompt(environment, environments))
-        style_text = _selected_prompt(style, styles)
-        style_prompt = f"Visual style: {_clean_fragment(style_text)}." if style_text else ""
+        ordered_fragments = []
+        for name in _parse_order(dropdown_order):
+            text = fragments.get(name, "")
+            if not text:
+                continue
+            if name == "style":
+                ordered_fragments.append(f"Visual style: {_clean_fragment(text)}")
+            elif name == "clothing_style":
+                ordered_fragments.append(f"Clothing: {_clean_fragment(text)}")
+            else:
+                ordered_fragments.append(text)
 
+        assembled = _join_fragments(custom_prompt, *ordered_fragments)
         combined_prompt = " ".join(
             part.strip()
-            for part in (prefix, character_prompt, scene_prompt, style_prompt, suffix)
+            for part in (prefix, assembled, suffix)
             if part and part.strip()
         )
 
@@ -174,3 +233,7 @@ NODE_CLASS_MAPPINGS = {
 NODE_DISPLAY_NAME_MAPPINGS = {
     "ClioPromptBuilder": "Clio Prompt Builder",
 }
+
+WEB_DIRECTORY = "./web"
+
+__all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS", "WEB_DIRECTORY"]
