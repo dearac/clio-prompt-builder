@@ -2,6 +2,7 @@ import { app } from "../../scripts/app.js";
 
 const NODE_CLASS = "ClioPromptBuilder";
 const ORDER_WIDGET = "dropdown_order";
+const NONE_VALUE = "✨ none";
 const DEFAULT_ORDER = [
   "subject",
   "body",
@@ -51,8 +52,8 @@ function parseOrder(value) {
 }
 
 function comboValues(widget) {
-  if (Array.isArray(widget?.options?.values)) return widget.options.values;
-  if (Array.isArray(widget?.options)) return widget.options;
+  if (Array.isArray(widget?.options?.values)) return widget.options.values.map(String);
+  if (Array.isArray(widget?.options)) return widget.options.map(String);
   return [];
 }
 
@@ -96,14 +97,25 @@ function createStyles() {
     .clio-order-help {
       opacity: 0.75;
       line-height: 1.25;
+      flex: 1;
     }
-    .clio-reset-order {
+    .clio-toolbar-buttons {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+    .clio-toolbar-button {
       border: 1px solid var(--border-color, #666);
       border-radius: 5px;
       background: var(--comfy-input-bg, #222);
       color: inherit;
       padding: 3px 7px;
       cursor: pointer;
+      white-space: nowrap;
+    }
+    .clio-toolbar-button:hover {
+      filter: brightness(1.15);
     }
     .clio-order-list {
       display: flex;
@@ -119,6 +131,7 @@ function createStyles() {
       border: 1px solid var(--border-color, #555);
       border-radius: 6px;
       background: var(--comfy-input-bg, #222);
+      position: relative;
     }
     .clio-order-row.clio-dragging {
       opacity: 0.45;
@@ -141,7 +154,12 @@ function createStyles() {
       text-overflow: ellipsis;
       white-space: nowrap;
     }
-    .clio-order-select {
+    .clio-search-wrap {
+      position: relative;
+      min-width: 0;
+      width: 100%;
+    }
+    .clio-search-input {
       box-sizing: border-box;
       min-width: 0;
       width: 100%;
@@ -149,7 +167,54 @@ function createStyles() {
       border-radius: 5px;
       background: var(--comfy-input-bg, #181818);
       color: inherit;
-      padding: 4px 6px;
+      padding: 4px 24px 4px 6px;
+    }
+    .clio-search-input:focus {
+      outline: 1px solid var(--p-button-text-primary, #6aa9ff);
+    }
+    .clio-search-arrow {
+      position: absolute;
+      right: 7px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      opacity: 0.75;
+    }
+    .clio-search-menu {
+      position: absolute;
+      z-index: 99999;
+      left: 0;
+      right: 0;
+      top: calc(100% + 3px);
+      max-height: 220px;
+      overflow-y: auto;
+      border: 1px solid var(--border-color, #666);
+      border-radius: 5px;
+      background: var(--comfy-menu-bg, #181818);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      display: none;
+    }
+    .clio-search-menu.clio-open {
+      display: block;
+    }
+    .clio-search-option {
+      box-sizing: border-box;
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      text-align: left;
+      padding: 6px 8px;
+      cursor: pointer;
+      font-size: 12px;
+    }
+    .clio-search-option:hover,
+    .clio-search-option.clio-active {
+      background: var(--comfy-input-bg, #333);
+    }
+    .clio-search-empty {
+      padding: 7px 8px;
+      opacity: 0.65;
     }
   `;
   document.head.appendChild(style);
@@ -182,24 +247,153 @@ function buildEditor(node) {
 
   const help = document.createElement("div");
   help.className = "clio-order-help";
-  help.textContent = "Drag rows to set dropdown and prompt priority.";
+  help.textContent = "Search selections or drag rows to set prompt priority.";
 
-  const reset = document.createElement("button");
-  reset.type = "button";
-  reset.className = "clio-reset-order";
-  reset.textContent = "Reset order";
+  const buttonGroup = document.createElement("div");
+  buttonGroup.className = "clio-toolbar-buttons";
 
-  toolbar.append(help, reset);
+  const resetAll = document.createElement("button");
+  resetAll.type = "button";
+  resetAll.className = "clio-toolbar-button";
+  resetAll.textContent = "Reset all to none";
+
+  const resetOrder = document.createElement("button");
+  resetOrder.type = "button";
+  resetOrder.className = "clio-toolbar-button";
+  resetOrder.textContent = "Reset order";
+
+  buttonGroup.append(resetAll, resetOrder);
+  toolbar.append(help, buttonGroup);
 
   const list = document.createElement("div");
   list.className = "clio-order-list";
   root.append(toolbar, list);
 
   let draggedRow = null;
+  let openMenu = null;
+
+  function closeOpenMenu() {
+    openMenu?.classList.remove("clio-open");
+    openMenu = null;
+  }
 
   function saveOrder() {
     const order = [...list.querySelectorAll(".clio-order-row")].map((row) => row.dataset.name);
     setWidgetValue(orderWidget, JSON.stringify(order), node);
+  }
+
+  function makeSearchControl(name, widget, labelText) {
+    const values = comboValues(widget);
+    const wrap = document.createElement("div");
+    wrap.className = "clio-search-wrap";
+
+    const input = document.createElement("input");
+    input.type = "text";
+    input.className = "clio-search-input";
+    input.setAttribute("aria-label", labelText);
+    input.setAttribute("autocomplete", "off");
+    input.value = String(widget.value ?? NONE_VALUE);
+
+    const arrow = document.createElement("span");
+    arrow.className = "clio-search-arrow";
+    arrow.textContent = "▾";
+
+    const menu = document.createElement("div");
+    menu.className = "clio-search-menu";
+
+    let filtered = [...values];
+    let activeIndex = -1;
+
+    function selectValue(value) {
+      input.value = value;
+      setWidgetValue(widget, value, node);
+      closeOpenMenu();
+    }
+
+    function renderMenu(query = "") {
+      const normalized = query.trim().toLowerCase();
+      filtered = values.filter((value) => value.toLowerCase().includes(normalized));
+      activeIndex = -1;
+      menu.replaceChildren();
+
+      if (!filtered.length) {
+        const empty = document.createElement("div");
+        empty.className = "clio-search-empty";
+        empty.textContent = "No matches";
+        menu.appendChild(empty);
+        return;
+      }
+
+      for (const value of filtered) {
+        const option = document.createElement("button");
+        option.type = "button";
+        option.className = "clio-search-option";
+        option.textContent = value;
+        option.dataset.value = value;
+        option.addEventListener("mousedown", (event) => {
+          event.preventDefault();
+          selectValue(value);
+        });
+        menu.appendChild(option);
+      }
+    }
+
+    function openWithQuery(query) {
+      if (openMenu && openMenu !== menu) closeOpenMenu();
+      renderMenu(query);
+      menu.classList.add("clio-open");
+      openMenu = menu;
+    }
+
+    function updateActive() {
+      const options = [...menu.querySelectorAll(".clio-search-option")];
+      options.forEach((option, index) => option.classList.toggle("clio-active", index === activeIndex));
+      options[activeIndex]?.scrollIntoView({ block: "nearest" });
+    }
+
+    input.addEventListener("focus", () => {
+      input.select();
+      openWithQuery("");
+    });
+
+    input.addEventListener("input", () => {
+      openWithQuery(input.value);
+    });
+
+    input.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown") {
+        event.preventDefault();
+        if (!menu.classList.contains("clio-open")) openWithQuery(input.value);
+        activeIndex = Math.min(activeIndex + 1, filtered.length - 1);
+        updateActive();
+      } else if (event.key === "ArrowUp") {
+        event.preventDefault();
+        activeIndex = Math.max(activeIndex - 1, 0);
+        updateActive();
+      } else if (event.key === "Enter") {
+        event.preventDefault();
+        if (activeIndex >= 0 && filtered[activeIndex]) {
+          selectValue(filtered[activeIndex]);
+        } else {
+          const exact = values.find((value) => value.toLowerCase() === input.value.trim().toLowerCase());
+          if (exact) selectValue(exact);
+        }
+      } else if (event.key === "Escape") {
+        closeOpenMenu();
+        input.value = String(widget.value ?? NONE_VALUE);
+        input.blur();
+      }
+    });
+
+    input.addEventListener("blur", () => {
+      window.setTimeout(() => {
+        if (!values.includes(input.value)) input.value = String(widget.value ?? NONE_VALUE);
+        if (openMenu === menu) closeOpenMenu();
+      }, 120);
+    });
+
+    wrap.append(input, arrow, menu);
+    return { wrap, input };
   }
 
   function makeRow(name) {
@@ -221,23 +415,15 @@ function buildEditor(node) {
     label.textContent = LABELS[name] || name;
     label.title = label.textContent;
 
-    const select = document.createElement("select");
-    select.className = "clio-order-select";
-    select.setAttribute("aria-label", label.textContent);
-
-    for (const value of comboValues(widget)) {
-      const option = document.createElement("option");
-      option.value = String(value);
-      option.textContent = String(value);
-      select.appendChild(option);
-    }
-    select.value = String(widget.value ?? "");
-
-    select.addEventListener("change", () => {
-      setWidgetValue(widget, select.value, node);
-    });
+    const search = makeSearchControl(name, widget, label.textContent);
+    row.__clioInput = search.input;
 
     row.addEventListener("dragstart", (event) => {
+      if (event.target.closest(".clio-search-wrap")) {
+        event.preventDefault();
+        return;
+      }
+      closeOpenMenu();
       draggedRow = row;
       row.classList.add("clio-dragging");
       event.dataTransfer.effectAllowed = "move";
@@ -273,11 +459,12 @@ function buildEditor(node) {
       saveOrder();
     });
 
-    row.append(handle, label, select);
+    row.append(handle, label, search.wrap);
     return row;
   }
 
   function render(orderValue = orderWidget.value) {
+    closeOpenMenu();
     const order = parseOrder(orderValue);
     list.replaceChildren();
     for (const name of order) {
@@ -286,27 +473,36 @@ function buildEditor(node) {
     }
   }
 
-  reset.addEventListener("click", () => {
+  resetAll.addEventListener("click", () => {
+    closeOpenMenu();
+    for (const name of DEFAULT_ORDER) {
+      const widget = dropdownWidgets[name];
+      if (widget) setWidgetValue(widget, NONE_VALUE, node);
+    }
+    for (const row of list.querySelectorAll(".clio-order-row")) {
+      if (row.__clioInput) row.__clioInput.value = NONE_VALUE;
+    }
+  });
+
+  resetOrder.addEventListener("click", () => {
     render(JSON.stringify(DEFAULT_ORDER));
     saveOrder();
+  });
+
+  document.addEventListener("mousedown", (event) => {
+    if (!root.contains(event.target)) closeOpenMenu();
   });
 
   const domWidget = node.addDOMWidget("clio_dropdown_editor", "CLIO_ORDER_EDITOR", root, {
     serialize: false,
     hideOnZoom: false,
   });
-  domWidget.computeSize = (width) => [width, Math.max(380, DEFAULT_ORDER.length * 42 + 52)];
+  domWidget.computeSize = (width) => [width, Math.max(400, DEFAULT_ORDER.length * 42 + 68)];
 
   node.__clioEditorReady = true;
   node.__clioRefreshEditor = () => {
-    for (const name of DEFAULT_ORDER) {
-      const row = list.querySelector(`[data-name="${name}"]`);
-      const select = row?.querySelector("select");
-      const widget = dropdownWidgets[name];
-      if (select && widget) select.value = String(widget.value ?? "");
-    }
     render(orderWidget.value);
-    node.setSize?.([Math.max(node.size?.[0] || 360, 390), node.computeSize?.()[1] || 520]);
+    node.setSize?.([Math.max(node.size?.[0] || 390, 420), node.computeSize?.()[1] || 550]);
     node.setDirtyCanvas?.(true, true);
   };
 
@@ -315,7 +511,7 @@ function buildEditor(node) {
 }
 
 app.registerExtension({
-  name: "dearac.ClioPromptBuilder.DragDropOrder",
+  name: "dearac.ClioPromptBuilder.SearchDragDrop",
 
   async nodeCreated(node) {
     if (node?.comfyClass !== NODE_CLASS) return;
