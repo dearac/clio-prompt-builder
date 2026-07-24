@@ -2,6 +2,8 @@
 
 A modular ComfyUI prompt-building node for KREA 2, Qwen-family text encoders, and other models that work well with detailed natural-language prompts.
 
+> **Original project credit:** This repository is a customized fork of [`lumenastrum/clio-style-preview`](https://github.com/lumenastrum/clio-style-preview), created and maintained by [lumenastrum](https://github.com/lumenastrum). The original project supplied the Clio style node, the 281-style library integration, the gallery, the generation scripts, and the overall foundation used by this fork.
+
 This fork expands the original **Clio Style Library** beyond art styles. It adds selectable prompt libraries for subjects, physical features, body types, poses, and environments while retaining the original 281-style collection.
 
 ## Features
@@ -187,7 +189,7 @@ It does not register the original `ClioStyle` key.
 
 ## Original gallery and scripts
 
-The repository still contains the original style-preview gallery and headless generation scripts.
+The repository still contains the original style-preview gallery and headless generation scripts from the upstream project.
 
 To render one subject through the style collection:
 
@@ -211,12 +213,13 @@ python scripts/comfy_gen_krea2.py --list-styles
 
 ## Credits and fork notice
 
-This repository is a customized fork of [`lumenastrum/clio-style-preview`](https://github.com/lumenastrum/clio-style-preview).
+This repository is a customized fork of [`lumenastrum/clio-style-preview`](https://github.com/lumenastrum/clio-style-preview), originally created and maintained by [lumenastrum](https://github.com/lumenastrum).
 
-- **Original style library:** compiled as a wildcard set by [u/Dear-Spend-2865](https://www.reddit.com/user/Dear-Spend-2865), with 283 community-shared entries deduplicated to 281.
-- **Original gallery front-end:** VPS-Clio, running Kimi K3.
-- **Original node, pipeline, and QA:** Clio 💅, with art direction by [lumenastrum](https://github.com/lumenastrum).
-- **Prompt-builder fork:** adds modular subject, appearance, pose, body, and environment libraries while retaining the original style collection and supporting assets.
+- **Original project owner and maintainer:** [lumenastrum](https://github.com/lumenastrum)
+- **Original Clio node, pipeline, gallery integration, and QA:** Clio 💅, with art direction by lumenastrum
+- **Original style library:** compiled as a wildcard set by [u/Dear-Spend-2865](https://www.reddit.com/user/Dear-Spend-2865), with 283 community-shared entries deduplicated to 281
+- **Original gallery front-end:** VPS-Clio, running Kimi K3
+- **Prompt-builder fork:** adds modular subject, appearance, pose, body, and environment libraries while retaining the original style collection and supporting assets
 
 This fork is maintained independently. Changes made here do not modify the upstream repository unless a separate upstream pull request is deliberately submitted and accepted.
 
