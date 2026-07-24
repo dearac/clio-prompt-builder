@@ -1,0 +1,202 @@
+[
+  {
+    "name": "Natural Eye-Level View",
+    "prompt": "the camera is positioned at a natural human eye level, aligned horizontally with the primary subject so the scene feels grounded, observational, and physically believable, with neither the subject nor the environment visually exaggerated by elevation",
+    "section": "Neutral Perspective"
+  },
+  {
+    "name": "High-Angle View",
+    "prompt": "the camera is raised above the subject and angled downward, revealing more of the surrounding ground plane and environment while making the subject appear smaller, more exposed, or more visually contained within the scene",
+    "section": "Vertical Angle"
+  },
+  {
+    "name": "Low-Angle View",
+    "prompt": "the camera is positioned below the subject and tilted upward, emphasizing height, presence, authority, and scale while allowing architecture, sky, trees, or other vertical environmental elements to rise dramatically behind the subject",
+    "section": "Vertical Angle"
+  },
+  {
+    "name": "Extreme Low-Angle View",
+    "prompt": "the camera is placed very close to the ground and aimed steeply upward, producing an imposing perspective with strongly converging vertical lines, enlarged foreground forms, and a dramatic sense that the subject towers over the viewer",
+    "section": "Vertical Angle"
+  },
+  {
+    "name": "Direct Overhead View",
+    "prompt": "the camera looks straight down from directly above in a true ninety-degree overhead perspective, clearly displaying the arrangement, geometry, spacing, and visual patterns formed by the subject and surrounding environment",
+    "section": "Top-Down"
+  },
+  {
+    "name": "Bird's-Eye View",
+    "prompt": "the scene is observed from high above at a broad bird's-eye perspective, showing the subject as one element within a much larger landscape, street grid, interior layout, or environmental pattern with a strong sense of spatial scale",
+    "section": "Aerial"
+  },
+  {
+    "name": "High-Altitude Sky View",
+    "prompt": "the viewpoint is located far above the scene as though seen from the open sky, capturing an expansive environmental panorama in which roads, buildings, terrain, water, crowds, and the primary subject are arranged across a vast field of view",
+    "section": "Aerial"
+  },
+  {
+    "name": "Oblique Drone View",
+    "prompt": "the camera hovers above and diagonally beside the scene like a cinematic drone, looking downward at an oblique angle that preserves depth, horizon structure, and recognizable subject form while revealing a wide area of the environment",
+    "section": "Aerial"
+  },
+  {
+    "name": "Low Drone Follow View",
+    "prompt": "the camera follows from a low airborne position slightly behind and above the subject, creating a smooth tracking perspective that reveals the subject's direction of movement and the environment unfolding ahead",
+    "section": "Aerial"
+  },
+  {
+    "name": "Satellite-Like View",
+    "prompt": "the environment is presented from an extremely distant top-down altitude resembling satellite imagery, prioritizing large-scale geographic shapes, roads, coastlines, structures, terrain boundaries, and overall spatial organization over individual facial detail",
+    "section": "Aerial"
+  },
+  {
+    "name": "Front-Facing View",
+    "prompt": "the camera faces the subject directly from the front, keeping the face, torso, posture, and bilateral structure clearly visible while the environment extends naturally behind them",
+    "section": "Subject Orientation"
+  },
+  {
+    "name": "Three-Quarter Front View",
+    "prompt": "the camera observes the subject from a front three-quarter angle, showing the front and one side simultaneously to create dimensional facial structure, readable body form, and a natural sense of depth within the environment",
+    "section": "Subject Orientation"
+  },
+  {
+    "name": "Side Profile View",
+    "prompt": "the camera views the subject from a clean side profile, emphasizing silhouette, facial contour, posture, limb alignment, and directional movement while allowing the environment to extend laterally across the frame",
+    "section": "Subject Orientation"
+  },
+  {
+    "name": "Three-Quarter Rear View",
+    "prompt": "the camera is positioned behind the subject at a three-quarter angle, revealing the back, side profile, and direction of attention while preserving a clear view of the environment in front of the subject",
+    "section": "Subject Orientation"
+  },
+  {
+    "name": "Direct Rear View",
+    "prompt": "the subject is seen directly from behind, with their back facing the camera and the scene ahead becoming the visual destination, emphasizing posture, silhouette, clothing, hair, and the relationship between the subject and the environment they are observing",
+    "section": "Subject Orientation"
+  },
+  {
+    "name": "Over-the-Shoulder View",
+    "prompt": "the camera is positioned just behind one shoulder of the subject, using part of the head, shoulder, or upper body as foreground framing while directing attention toward another person, object, action, or area of the environment",
+    "section": "Cinematic POV"
+  },
+  {
+    "name": "First-Person POV",
+    "prompt": "the scene is shown directly through the eyes of the active subject, placing the viewer inside their physical position with hands, arms, legs, carried objects, or nearby surfaces visible only when naturally present in their field of vision",
+    "section": "First Person"
+  },
+  {
+    "name": "Adult Male First-Person POV",
+    "prompt": "the scene is experienced through the eyes of an adult man, with viewpoint height, body positioning, visible hands or forearms, clothing cues, and interaction with nearby objects presented as belonging to the male viewer rather than as an externally photographed character",
+    "section": "First Person"
+  },
+  {
+    "name": "Adult Female First-Person POV",
+    "prompt": "the scene is experienced through the eyes of an adult woman, with viewpoint height, body positioning, visible hands or forearms, clothing cues, and interaction with nearby objects presented as belonging to the female viewer rather than as an externally photographed character",
+    "section": "First Person"
+  },
+  {
+    "name": "Seated First-Person POV",
+    "prompt": "the camera represents the natural eye position of a seated person, lowering the horizon and showing nearby furniture, knees, hands, wheels, armrests, table edges, or surrounding people from a physically believable seated perspective",
+    "section": "First Person"
+  },
+  {
+    "name": "Wheelchair-User First-Person POV",
+    "prompt": "the scene is presented from the seated eye height of a wheelchair user, with realistic lower viewpoint, spatial clearance, nearby surfaces, hands, armrests, wheel rims, or parts of the chair included only when naturally visible from the user's own perspective",
+    "section": "First Person"
+  },
+  {
+    "name": "Ground-Level View",
+    "prompt": "the camera rests only inches above the ground, making pavement, grass, sand, flooring, debris, reflections, or other foreground texture visually prominent while subjects and environmental structures rise above the low horizon",
+    "section": "Environmental Angle"
+  },
+  {
+    "name": "Floor-Level Interior View",
+    "prompt": "the interior is observed from floor level, allowing furniture legs, doorways, people, walls, and ceiling lines to appear from a dramatically low domestic or architectural perspective with strong foreground-to-background depth",
+    "section": "Environmental Angle"
+  },
+  {
+    "name": "Worm's-Eye Environmental View",
+    "prompt": "the environment is seen from an exaggerated worm's-eye perspective beneath the normal human viewing height, causing buildings, trees, machinery, cliffs, or interior structures to loom overhead with pronounced converging lines and monumental scale",
+    "section": "Environmental Angle"
+  },
+  {
+    "name": "Wide Establishing View",
+    "prompt": "the camera is pulled far enough back to establish the complete location, showing the subject in relation to the architecture, landscape, crowd, weather, lighting, and major spatial features before emphasizing smaller personal details",
+    "section": "Cinematic Distance"
+  },
+  {
+    "name": "Long-Distance Observer View",
+    "prompt": "the scene is viewed from a considerable distance as though observed across a street, field, room, valley, or other separating space, creating visual detachment while allowing environmental context and subject placement to dominate",
+    "section": "Cinematic Distance"
+  },
+  {
+    "name": "Medium Environmental View",
+    "prompt": "the camera maintains a moderate distance that keeps the subject clearly readable while preserving enough surrounding environment to communicate location, action, scale, and atmosphere without becoming either a close portrait or a distant establishing shot",
+    "section": "Cinematic Distance"
+  },
+  {
+    "name": "Intimate Close View",
+    "prompt": "the camera moves close to the subject, emphasizing facial expression, skin, hands, texture, and immediate emotional presence while allowing only selected nearby environmental details to remain visible around the edges of the frame",
+    "section": "Cinematic Distance"
+  },
+  {
+    "name": "Extreme Close-Up View",
+    "prompt": "the framing isolates a very small portion of the subject or environment, such as the eyes, mouth, hands, an object detail, or a surface texture, using magnified scale and shallow contextual information to create intensity and visual focus",
+    "section": "Cinematic Distance"
+  },
+  {
+    "name": "Dutch-Angle View",
+    "prompt": "the camera is deliberately rolled so the horizon and vertical environmental lines tilt diagonally, producing a visually unstable, tense, disorienting, or energetic composition while maintaining clear subject readability",
+    "section": "Dynamic Composition"
+  },
+  {
+    "name": "Canted Low-Angle View",
+    "prompt": "the camera combines a low upward-looking position with a diagonal roll, creating an aggressive dynamic perspective with tilted architecture, exaggerated subject scale, and strong visual tension",
+    "section": "Dynamic Composition"
+  },
+  {
+    "name": "Moving Chase View",
+    "prompt": "the camera follows behind or beside a moving subject at matching speed, framing the environment with directional motion, receding perspective lines, and a clear sense of forward momentum through the scene",
+    "section": "Movement"
+  },
+  {
+    "name": "Leading Tracking View",
+    "prompt": "the camera moves backward in front of the subject while maintaining visual contact, showing the subject advancing toward the viewer as the environment shifts and recedes behind them",
+    "section": "Movement"
+  },
+  {
+    "name": "Side Tracking View",
+    "prompt": "the camera travels parallel to the subject from the side, preserving a profile-oriented view while the background moves laterally to communicate speed, direction, and environmental continuity",
+    "section": "Movement"
+  },
+  {
+    "name": "View Through a Doorway",
+    "prompt": "the scene is observed through an open or partially open doorway, using the doorframe and adjacent wall as natural foreground framing while revealing the subject and environment beyond",
+    "section": "Framed View"
+  },
+  {
+    "name": "View Through a Window",
+    "prompt": "the subject and environment are seen through a window, with glass reflections, frame edges, curtains, weather, or interior foreground elements providing layered separation between the viewer and the scene outside or beyond",
+    "section": "Framed View"
+  },
+  {
+    "name": "Hidden Observer View",
+    "prompt": "the camera observes from a partially concealed location behind foliage, furniture, architecture, curtains, or another foreground obstruction, creating the impression of discreetly watching the subject from within the environment",
+    "section": "Framed View"
+  },
+  {
+    "name": "Reflection View",
+    "prompt": "the primary subject or environment is observed mainly through a mirror, window reflection, water surface, polished metal, or another reflective plane, with the reflective boundary becoming an important compositional layer",
+    "section": "Indirect View"
+  },
+  {
+    "name": "Surveillance-Camera View",
+    "prompt": "the scene is presented from a fixed elevated security-camera position near a ceiling or corner, using a wide observational field of view, detached composition, and clear coverage of entrances, movement paths, and environmental layout",
+    "section": "Indirect View"
+  },
+  {
+    "name": "Body-Camera View",
+    "prompt": "the viewpoint is attached to the upper torso of a moving person, producing a slightly lower-than-eye-level first-person angle with visible arms, hands, equipment, and natural motion consistent with a chest-mounted camera",
+    "section": "First Person"
+  }
+]
