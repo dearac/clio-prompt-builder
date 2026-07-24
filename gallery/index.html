@@ -672,7 +672,7 @@
           </button>
           <button class="btn primary" id="lbCopyStyle">
             <svg viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V6a2 2 0 0 1 2-2h9"/></svg>
-            copy style name
+            copy style
           </button>
         </div>
       </div>
@@ -799,6 +799,13 @@
     var tpl = sec.template || "Style: {style}. Subject: {prompt}";
     // the real prompt uses the style's full prose paragraph; fall back to the name if styles.json wasn't reachable
     return tpl.split("{prompt}").join(manifest.subject_prompt || "").split("{style}").join(styleTexts[style] || style);
+  }
+
+  function stylePrePrompt(sectionKey, style) {
+    var sec = manifest.sections[sectionKey] || {};
+    var tpl = sec.template || "Style: {style}. Subject: {prompt}";
+    // everything before the subject slot, prose substituted — paste it ahead of your own prompt
+    return tpl.split("{prompt}")[0].split("{style}").join(styleTexts[style] || style).trim();
   }
 
   // styles.json lives beside the gallery locally, or one level up in the repo layout
@@ -1105,7 +1112,7 @@
   els.lbNext.addEventListener("click", function () { stepLightbox(1); });
   els.lbPin.addEventListener("click", function () { if (filtered[lbIndex]) togglePin(filtered[lbIndex]); });
   els.lbCopyStyle.addEventListener("click", function () {
-    if (filtered[lbIndex]) copyText(filtered[lbIndex].style, "style name copied ♡");
+    if (filtered[lbIndex]) copyText(stylePrePrompt(activeSection, filtered[lbIndex].style), "style pre-prompt copied ♡");
   });
   els.lbCopyPrompt.addEventListener("click", function () {
     if (filtered[lbIndex]) copyText(fullPrompt(activeSection, filtered[lbIndex].style), "full prompt copied ♡");
@@ -1136,7 +1143,7 @@
   document.querySelectorAll(".mini-copy").forEach(function (btn) {
     btn.addEventListener("click", function () {
       var p = pinned[btn.getAttribute("data-copy") === "A" ? 0 : 1];
-      if (p) copyText(p.style, "style name copied ♡");
+      if (p) copyText(stylePrePrompt(p.section, p.style), "style pre-prompt copied ♡");
     });
   });
 
