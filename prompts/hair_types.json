@@ -1,0 +1,10 @@
+[
+  {"name":"Straight Hair","prompt":"naturally straight hair with smooth strands and minimal curl","section":"Pattern"},
+  {"name":"Wavy Hair","prompt":"naturally wavy hair with soft flowing S-shaped bends and visible strand definition","section":"Pattern"},
+  {"name":"Curly Hair","prompt":"naturally curly hair with defined springing curls, realistic volume, and individual textured strands","section":"Pattern"},
+  {"name":"Coily Hair","prompt":"tightly coiled natural hair with dense volume, compact curl patterns, and realistic strand texture","section":"Pattern"},
+  {"name":"Fine Hair","prompt":"fine lightweight hair made from delicate individual strands with soft natural movement","section":"Density"},
+  {"name":"Thick Hair","prompt":"thick dense hair with substantial natural volume and clearly defined individual strands","section":"Density"},
+  {"name":"Silky Hair","prompt":"silky smooth hair with low-friction strands, soft sheen, and fluid movement","section":"Texture"},
+  {"name":"Coarse Hair","prompt":"coarse textured hair with visibly substantial strands and natural body","section":"Texture"}
+]
