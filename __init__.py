@@ -102,7 +102,7 @@ class ClioPromptBuilder:
     RETURN_TYPES = ("STRING", "STRING", "STRING")
     RETURN_NAMES = ("combined_prompt", "style_name", "filename_prefix")
     FUNCTION = "build_prompt"
-    CATEGORY = "Clio 💅"
+    CATEGORY = "Clio Prompt Builder"
     DESCRIPTION = (
         "Builds a natural-language image prompt from selectable subject, appearance, "
         "pose, environment, and visual-style libraries."
@@ -167,13 +167,10 @@ class ClioPromptBuilder:
         return combined_prompt.strip(), style_name, "Krea2/" + safe_name
 
 
-# Keep the old node key as an alias so existing workflows can still load.
 NODE_CLASS_MAPPINGS = {
     "ClioPromptBuilder": ClioPromptBuilder,
-    "ClioStyle": ClioPromptBuilder,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "ClioPromptBuilder": "💅 Clio Prompt Builder",
-    "ClioStyle": "💅 Clio Prompt Builder",
+    "ClioPromptBuilder": "Clio Prompt Builder",
 }
