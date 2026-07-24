@@ -1,0 +1,12 @@
+[
+  {"name":"Long Flowing Hair","prompt":"long flowing hair falling naturally past the shoulders with loose movement and layered strands","section":"Long"},
+  {"name":"Shoulder-Length Layers","prompt":"shoulder-length layered hair with soft face-framing sections and natural movement","section":"Medium"},
+  {"name":"French Bob","prompt":"a chin-length French bob with softly shaped ends and understated face-framing structure","section":"Short"},
+  {"name":"Pixie Cut","prompt":"a short textured pixie cut with tapered sides and softly separated top layers","section":"Short"},
+  {"name":"Buzz Cut","prompt":"a closely cropped buzz cut with even length and clearly visible natural hair texture","section":"Short"},
+  {"name":"Messy Bun","prompt":"hair gathered into a relaxed messy bun with loose strands framing the face","section":"Updos"},
+  {"name":"High Ponytail","prompt":"hair pulled into a high ponytail with a clean lifted silhouette and natural trailing movement","section":"Ponytails"},
+  {"name":"Box Braids","prompt":"neatly sectioned box braids with consistent woven structure, realistic tension, and individual braided detail","section":"Braids"},
+  {"name":"Cornrows","prompt":"precisely sectioned cornrows braided close to the scalp with clean geometric paths","section":"Braids"},
+  {"name":"Dreadlocks","prompt":"mature natural dreadlocks with varied strand thickness, realistic texture, and organic separation","section":"Locs"}
+]

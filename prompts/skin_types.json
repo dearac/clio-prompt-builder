@@ -1,0 +1,10 @@
+[
+  {"name":"Smooth Porcelain Skin","prompt":"smooth porcelain-toned skin with an even complexion, subtle natural translucency, delicate surface texture, and softly visible pores","section":"Complexion"},
+  {"name":"Fair Skin","prompt":"fair skin with natural tonal variation, realistic pores, and soft neutral undertones","section":"Complexion"},
+  {"name":"Olive Skin","prompt":"olive-toned skin with balanced warm and neutral undertones and realistic surface texture","section":"Complexion"},
+  {"name":"Deep Rich Skin Tone","prompt":"deep richly pigmented skin with warm undertones, natural tonal variation, subtle highlights, and realistic visible texture","section":"Complexion"},
+  {"name":"Freckled Skin","prompt":"naturally textured skin with scattered freckles across the cheeks, nose, shoulders, and other sun-exposed areas","section":"Features"},
+  {"name":"Vitiligo","prompt":"natural vitiligo pigmentation with irregular pale patches distributed organically across the face and body","section":"Features"},
+  {"name":"Weathered Skin","prompt":"weathered skin with fine lines, sun exposure, uneven texture, and realistic signs of age and outdoor living","section":"Texture"},
+  {"name":"Dewy Skin","prompt":"healthy dewy skin with subtle moisture, soft highlights, visible pores, and realistic natural texture","section":"Texture"}
+]

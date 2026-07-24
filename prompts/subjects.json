@@ -1,0 +1,10 @@
+[
+  {"name":"Adult Woman","prompt":"an adult woman","section":"People"},
+  {"name":"Adult Man","prompt":"an adult man","section":"People"},
+  {"name":"Older Woman","prompt":"an older adult woman with naturally mature facial features","section":"People"},
+  {"name":"Older Man","prompt":"an older adult man with naturally mature facial features","section":"People"},
+  {"name":"Androgynous Adult","prompt":"an androgynous adult with a balanced mixture of traditionally masculine and feminine features","section":"People"},
+  {"name":"Humanoid Android","prompt":"a humanoid android with anatomically human proportions and integrated synthetic components","section":"Science Fiction"},
+  {"name":"Fantasy Elf","prompt":"an adult fantasy elf with elegant pointed ears and refined otherworldly features","section":"Fantasy"},
+  {"name":"Vampire","prompt":"an adult vampire with subtly predatory features and an unnaturally composed presence","section":"Fantasy"}
+]

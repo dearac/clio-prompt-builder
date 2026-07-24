@@ -1,0 +1,12 @@
+[
+  {"name":"Standing Front View","prompt":"standing upright while facing the camera directly in a balanced natural posture","section":"Standing"},
+  {"name":"Standing Back View","prompt":"standing with their back toward the camera, showing the complete rear silhouette","section":"Standing"},
+  {"name":"Three-Quarter Pose","prompt":"posed at a three-quarter angle with the torso turned partially away from the camera","section":"Standing"},
+  {"name":"Contrapposto","prompt":"standing in a natural contrapposto pose with weight shifted onto one leg and relaxed asymmetry through the hips and shoulders","section":"Standing"},
+  {"name":"Sitting Casually","prompt":"sitting in a relaxed natural posture with believable weight distribution","section":"Seated"},
+  {"name":"Cross-Legged","prompt":"sitting cross-legged in a comfortable balanced posture","section":"Seated"},
+  {"name":"Walking Toward Camera","prompt":"walking naturally toward the camera in mid-stride with realistic body movement","section":"Movement"},
+  {"name":"Running","prompt":"running in a dynamic mid-stride pose with believable momentum and coordinated limb movement","section":"Movement"},
+  {"name":"Looking Over Shoulder","prompt":"body turned away while looking back over one shoulder toward the camera","section":"Portrait"},
+  {"name":"Leaning Against Wall","prompt":"leaning naturally against a wall with relaxed posture and believable contact points","section":"Casual"}
+]
