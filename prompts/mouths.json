@@ -1,0 +1,10 @@
+[
+  {"name":"Full Lips","prompt":"naturally full lips with a softly defined cupid's bow and realistic surface texture","section":"Shape"},
+  {"name":"Thin Lips","prompt":"naturally thin lips with restrained volume and subtle contour definition","section":"Shape"},
+  {"name":"Heart-Shaped Lips","prompt":"heart-shaped lips with a pronounced cupid's bow and balanced lower-lip fullness","section":"Shape"},
+  {"name":"Soft Smile","prompt":"a soft relaxed smile with gently raised mouth corners and a natural expression","section":"Expression"},
+  {"name":"Broad Smile","prompt":"a broad genuine smile with lifted cheeks and natural facial tension","section":"Expression"},
+  {"name":"Closed Neutral Mouth","prompt":"a relaxed closed mouth with a neutral resting expression","section":"Expression"},
+  {"name":"Slightly Parted Lips","prompt":"slightly parted lips with a subtle natural gap and relaxed facial tension","section":"Expression"},
+  {"name":"Subtle Smirk","prompt":"a restrained asymmetrical smirk with one corner of the mouth raised slightly","section":"Expression"}
+]
