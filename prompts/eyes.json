@@ -1,0 +1,11 @@
+[
+  {"name":"Almond-Shaped Eyes","prompt":"almond-shaped eyes with balanced proportions and naturally tapered inner and outer corners","section":"Shape"},
+  {"name":"Wide Round Eyes","prompt":"wide round eyes with clearly visible irises and an open expressive appearance","section":"Shape"},
+  {"name":"Hooded Eyes","prompt":"hooded eyes with a natural fold partially covering the upper eyelids","section":"Shape"},
+  {"name":"Deep-Set Eyes","prompt":"deep-set eyes positioned beneath a pronounced brow structure with natural dimensional shadowing","section":"Shape"},
+  {"name":"Upturned Eyes","prompt":"upturned eyes with outer corners naturally angled slightly higher than the inner corners","section":"Shape"},
+  {"name":"Blue Eyes","prompt":"clear blue irises with subtle radial color variation and realistic catchlights","section":"Color"},
+  {"name":"Green Eyes","prompt":"clear green irises with subtle radial color variation and realistic catchlights","section":"Color"},
+  {"name":"Hazel Eyes","prompt":"hazel irises blending green, amber, and brown tones with natural radial variation","section":"Color"},
+  {"name":"Dark Brown Eyes","prompt":"deep dark-brown irises with warm tonal variation and realistic reflective highlights","section":"Color"}
+]
