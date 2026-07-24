@@ -308,6 +308,6 @@ NODE_DISPLAY_NAME_MAPPINGS = {
     "ClioPromptBuilder": "Clio Prompt Builder",
 }
 
-WEB_DIRECTORY = "./web"
+WEB_DIRECTORY = "./web_v2"
 
 __all__ = ["NODE_CLASS_MAPPINGS", "NODE_DISPLAY_NAME_MAPPINGS", "WEB_DIRECTORY"]
