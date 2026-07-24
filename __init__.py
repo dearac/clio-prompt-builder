@@ -164,6 +164,48 @@ class ClioPromptBuilder:
         "appearance, clothing, pose, environment, and visual-style libraries."
     )
 
+    @classmethod
+    def IS_CHANGED(
+        cls,
+        custom_prompt,
+        subject,
+        skin_type,
+        hair_type,
+        hair_style,
+        eyes,
+        mouth,
+        body,
+        clothing_style,
+        position,
+        environment,
+        style,
+        dropdown_order,
+        prefix="",
+        suffix="",
+    ):
+        selections = (
+            subject,
+            skin_type,
+            hair_type,
+            hair_style,
+            eyes,
+            mouth,
+            body,
+            clothing_style,
+            position,
+            environment,
+            style,
+        )
+        if _RANDOM in selections:
+            return float("NaN")
+        return (
+            custom_prompt,
+            selections,
+            dropdown_order,
+            prefix,
+            suffix,
+        )
+
     def build_prompt(
         self,
         custom_prompt,
